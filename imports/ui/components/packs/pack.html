@@ -1,34 +1,12 @@
 <template name="pack">
-  <li class="shop-item product type-product">
-    <div class="side-item">
-      <figure class="item-media shop-item__img">
-        <a href="shop-single-item.html">
-          <img src="{{photoSmall}}" alt="">
-        </a>
-        <div class="shop-item__lk-wrapp">
-          <a href="#" class="shop-item__lk">Info</a>
-        </div>
-      </figure>
-      <div class="shop-item__content">
-        <h3 class="shop-item__title">
-          <a href="shop-single-item.html">{{name}}</a>
-        </h3>
-        <div class="shop-item__meta-list">
-          <div class="star-rating" title="Rated 4.00 out of 5">
-            <span style="width:80%">
-              <strong class="rating">4.00</strong> out of 5
-            </span>
-          </div>
-        </div>
-        <div class="shop-item__block">
-          <span class="shop-item__price">
-            <span>
-              <span class="amount">{{price}} DHs</span>
-            </span>
-          </span>
-          <button type="button" class="button-g_t4">Ajouter au panier</button>
-        </div>
-      </div>
+  <div class="banners-item-1">
+    <figure class="banners-item-1__img">
+      <img src="images/banners/{{photoSmall}}" alt="">
+    </figure>
+    <div class="banners-item-1__content">
+      <h3 class="banners-item-1__title">{{name}}</h3>
+      <p class="banners-item-1__text">{{details}}</p>
+      <a href="#" class="banners-item-1__button">Détail</a>
     </div>
-  </li>
+  </div>
 </template>
