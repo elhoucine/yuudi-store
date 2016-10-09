@@ -1,0 +1,76 @@
+<template name="detail">
+  <div class="page_breadcrumbs section_padding_85 breadcrumbs-01 parallax" style="background-position: 50% -3px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 class="breadcrumbs__title text-center">Shop single</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumbs-list text-center">
+						<li>
+							<a href="/">Home</a>
+						</li>
+						<li class="active">Shop single item</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="ls section_padding_top_110 section_padding_bottom_55">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5 col-md-5 col-sm-5 text-sm-center">
+
+					<!-- Shop img -->
+					<div class="shop-flexslider">
+						<ul class="slides">
+							<li data-thumb="/images/shop/single_shop/shop_img-12-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;" class="flex-active-slide">
+								<img src="/images/shop/shop_img-12.jpg" alt="" draggable="false">
+							</li>
+							<li data-thumb="/images/shop/single_shop/shop_img-11-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
+								<img src="/images/shop/shop_img-11.jpg" alt="" draggable="false">
+							</li>
+							<li data-thumb="/images/shop/single_shop/shop_img-10-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
+								<img src="/images/shop/shop_img-10.jpg" alt="" draggable="false">
+							</li>
+						</ul>
+					<ol class="flex-control-nav flex-control-thumbs"><li><img src="/images/shop/single_shop/shop_img-12-thumb.jpg" class="flex-active" draggable="false"></li><li><img src="/images/shop/single_shop/shop_img-11-thumb.jpg" draggable="false" class=""></li><li><img src="/images/shop/single_shop/shop_img-10-thumb.jpg" draggable="false" class=""></li></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div>
+				</div>
+				<div class="col-lg-7 col-md-7 col-sm-7">
+					<h3 class="shop-single__title">{{detail.name}}</h3>
+					<div class="star-rating shop-single__rating" title="Rated 4.00 out of 5">
+						<span style="width:80%">
+							<strong class="rating">4.00</strong> out of 5
+						</span>
+					</div>
+					<div class="shop-single__stock">
+						<i class="fa fa-check-square-o" aria-hidden="true"></i>
+						<span>In stock</span>
+					</div>
+					<span class="shop-item__price">
+						<span>
+							<span class="amount">$75.00</span>
+						</span>
+					</span>
+					<p class="shop-single__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, dolorem, eaque fugit odit obcaecati temporibus est dolor consequatur totam nam facilis soluta maiores eius iste veritatis.</p>
+					<div class="shop-single__controls">
+						<form action="/" class="single-shop-item__gty">
+							<span class="quantity form-group">
+								<input type="button" value="-" class="minus">
+								<input type="number" step="1" min="0" name="product_quantity" value="1" title="Qty" id="product_quantity" class="form-control ">
+								<input type="button" value="+" class="plus">
+							</span>
+							<button type="button" class="button-g_t5">Add To Cart</button>
+						</form>
+					</div>
+					<div class="shop-single__category">
+						<span>Category:</span>
+						<a href="#">Fruits</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

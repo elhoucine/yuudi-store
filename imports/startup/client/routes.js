@@ -12,19 +12,20 @@ import '../../ui/components/packs/packs.html';
 import '../../ui/components/packs/packs.js';
 import '../../ui/components/products/products.html';
 import '../../ui/components/products/products.js';
+import '../../ui/components/detail/detail.html';
+import '../../ui/components/detail/detail.js';
 
 import '../../ui/components/userAuth/auth.html';
 import '../../ui/components/main.html';
 
+// Subscriptions
+FlowRouter.subscriptions = function() {
+  this.register('data', Meteor.subscribe('allPacks'));
+  this.register('data', Meteor.subscribe('allProducts'));
+};
+
 // The route definitions
 FlowRouter.route('/', {
-    subscriptions: function(params, queryParams) {
-        if(Meteor.isClient) {
-          this.register('data', Meteor.subscribe('allPacks'));
-          this.register('data', Meteor.subscribe('allProducts'));
-          //TODO: Subscribe to connected the user cart
-        }
-    },
     action: function(params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "main", footer:"footer"});
     }
@@ -34,5 +35,11 @@ FlowRouter.route('/auth', {
     action: function(params, queryParams) {
         console.log("Hello auth");
         BlazeLayout.render("mainLayout", {top: "header", main: "authentification", footer:"footer"});
+    }
+});
+
+FlowRouter.route('/detail/:id', {
+    action: function (params, queryParams) {
+        BlazeLayout.render("mainLayout", {top: "header", main: "detail", footer:"footer"});
     }
 });
