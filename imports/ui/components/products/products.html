@@ -1,0 +1,17 @@
+<template name="products">
+  <div class="PRODUCTS ls section_padding_bottom_20">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="home-shop-feed">
+            <ul id="products" class="products list-unstyled grid-view shop-feed-t2">
+              {{#each products}}
+                {{> product}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
