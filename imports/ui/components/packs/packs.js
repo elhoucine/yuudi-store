@@ -3,7 +3,6 @@ import './pack.html';
 
 Template.packs.helpers({
   packs() {
-    console.log("hmmmm", Packs);
     return Packs.find({});
   }
 })
