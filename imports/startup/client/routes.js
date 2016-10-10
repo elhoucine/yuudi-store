@@ -7,6 +7,7 @@ import '../../ui/layouts/mainLayout.html';
 import '../../ui/components/header.html';
 import '../../ui/components/header.js';
 import '../../ui/components/footer.html';
+import '../../ui/components/helpers.js';
 
 import '../../ui/components/packs/packs.html';
 import '../../ui/components/packs/packs.js';
