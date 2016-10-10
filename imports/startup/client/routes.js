@@ -26,6 +26,9 @@ import '../../ui/components/main.html';
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
   this.register('data', Meteor.subscribe('allProducts'));
+  if(Meteor.userId()) {
+    this.register('data', Meteor.subscribe('carts'), Meteor.userId());
+  }
 };
 
 // The route definitions
