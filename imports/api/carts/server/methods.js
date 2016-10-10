@@ -24,6 +24,7 @@ Meteor.methods({
 
     //Add it to the cart
     // TODO: Check for duplication
+    item.ref = item._id;
     return Carts.update({userId: this.userId}, {
       '$push': {
         'items': { "item": item, "quantity": quantity}

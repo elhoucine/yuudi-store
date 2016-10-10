@@ -24,3 +24,13 @@ Template.shoppingCartBox.helpers({
     return Carts.findOne();
   }
 });
+
+Template.shoppingCartBox.events({
+  'click .remove': (event)=> {
+    const itemRef = event.target.id;
+    Meteor.call('removeFromCart', function(err, res){
+      console.log('err', err);
+      console.log('res', res);
+    })
+  }
+})
