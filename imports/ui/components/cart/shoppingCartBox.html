@@ -1,60 +1,26 @@
 <template name="shoppingCartBox">
   <div class="shopping-cart">
     <a class="shopping-cart__content header-button" id="cart" data-target="#" href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="shopping-cart__info">(2)</span>
+      <span class="shopping-cart__info">{{itemsCount}}</span>
       <i class="fa fa-shopping-basket" aria-hidden="true"></i>
     </a>
     <div class="shopping-cart__list dropdown-menu" aria-labelledby="cart">
-      <span class="grey">Recently added item(s)</span>
+      {{#if cartIsNotEmpty}}
+      <span class="grey">Panier</span>
       <div class="widget widget_shopping_cart">
 
         <div class="widget_shopping_cart_content">
           <ul class="cart_list product_list_widget media-list darklinks">
-            <li class="media">
-              <div class="media-left media-middle">
-                <a href="shop-single-item.html">
-                  <img src="images/shop/shop_img-01.jpg" alt="">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4>
-                  <a href="shop-single-item.html">Stet clitad gubergren</a>
-                </h4>
-                <span class="quantity">1 ×
-                  <span class="amount">$90</span>
-                </span>
-              </div>
-              <div class="media-body media-middle">
-                <a href="#" class="remove" title="Remove this item">
-                  <i class="rt-icon2-trash highlight"></i>
-                </a>
-              </div>
-            </li>
-            <li class="media">
-              <div class="media-left media-middle">
-                <a href="shop-single-item.html">
-                  <img src="images/shop/shop_img-02.jpg" alt="">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4>
-                  <a href="shop-single-item.html">Takimata san bctus</a>
-                </h4>
-                <span class="quantity">1 ×
-                  <span class="amount">$90</span>
-                </span>
-              </div>
-              <div class="media-body media-middle">
-                <a href="#" class="remove" title="Remove this item">
-                  <i class="rt-icon2-trash highlight"></i>
-                </a>
-              </div>
-            </li>
+
+            {{# each cartItems}}
+              {{> shoppingCartItem }}
+            {{/each}}
+
           </ul>
           <!-- end product list -->
           <p class="total">
-            <span class="grey">Cart Subtotal:
-              <span class="amount">$180</span>
+            <span class="grey">Total panier:
+              <span class="amount">{{totalCartAmount}} DHs</span>
             </span>
           </p>
           <p class="buttons">
@@ -63,6 +29,14 @@
           </p>
         </div>
       </div>
+      {{else}}
+        <span class="grey">Panier vide</span>
+        <div class="widget widget_shopping_cart">
+          <span class="grey">Penser a ajouter des produits
+            <span class="amount">Dans votre panier</span>
+          </span>
+        </div>
+      {{/if}}
     </div>
   </div>
 </template>
