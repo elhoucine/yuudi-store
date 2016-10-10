@@ -12,10 +12,13 @@ import '../imports/startup/server/packs.js';
 
 // This defines all the collections, publications and methods that the application provides
 // as an API to the client.
+
+// Packs
 import '../imports/api/packs/packs.js';
 import '../imports/api/packs/server/publications.js';
 import '../imports/api/packs/server/methods.js';
 
+// Users
 import '../imports/api/users/users.js';
 
 // Carts
@@ -23,7 +26,7 @@ import '../imports/api/carts/carts.js';
 import '../imports/api/carts/server/publications.js';
 import '../imports/api/carts/server/methods.js';
 
-
+// Products
 import '../imports/api/products/products.js';
 import '../imports/api/products/server/publications.js';
 import '../imports/api/products/server/methods.js';
