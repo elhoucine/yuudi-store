@@ -1,0 +1,5 @@
+Template.shoppingCartBox.helpers({
+  removeItem(){
+
+  }
+});
