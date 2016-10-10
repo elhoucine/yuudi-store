@@ -1,0 +1,22 @@
+<template name="shoppingCartItem">
+  <li class="media">
+    <div class="media-left media-middle">
+      <a href="shop-single-item.html">
+        <img src="{{photoSmall}}" alt="">
+      </a>
+    </div>
+    <div class="media-body media-middle">
+      <h4>
+        <a href="shop-single-item.html">{{name}}</a>
+      </h4>
+      <span class="quantity">1 ×
+        <span class="amount">{{price}} DHs</span>
+      </span>
+    </div>
+    <div class="media-body media-middle">
+      <a href="#" class="remove" title="Remove this item">
+        <i class="rt-icon2-trash highlight"></i>
+      </a>
+    </div>
+  </li>
+</template>

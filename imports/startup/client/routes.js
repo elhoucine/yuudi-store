@@ -4,6 +4,11 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 // Import to load these templates
 import '../../ui/layouts/mainLayout.html';
+
+import '../../ui/components/cart/shoppingCartItem.html';
+import '../../ui/components/cart/shoppingCartBox.html';
+import '../../ui/components/cart/shoppingCartBox.js';
+
 import '../../ui/components/header.html';
 import '../../ui/components/header.js';
 import '../../ui/components/footer.html';
@@ -12,8 +17,10 @@ import '../../ui/components/helpers.js';
 import '../../ui/components/packs/packs.html';
 import '../../ui/components/packs/packs.js';
 import '../../ui/components/products/products.html';
+
 import '../../ui/components/products/products.js';
 import '../../ui/components/detail/detail.html';
+
 import '../../ui/components/detail/detail.js';
 
 import '../../ui/components/userAuth/auth.html';
@@ -23,6 +30,9 @@ import '../../ui/components/main.html';
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
   this.register('data', Meteor.subscribe('allProducts'));
+  if(Meteor.userId()) {
+    this.register('data', Meteor.subscribe('myCart', Meteor.userId()));
+  }
 };
 
 // The route definitions

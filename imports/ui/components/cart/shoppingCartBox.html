@@ -1,0 +1,42 @@
+<template name="shoppingCartBox">
+  <div class="shopping-cart">
+    <a class="shopping-cart__content header-button" id="cart" data-target="#" href="/" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="shopping-cart__info">{{itemsCount}}</span>
+      <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+    </a>
+    <div class="shopping-cart__list dropdown-menu" aria-labelledby="cart">
+      {{#if cartIsNotEmpty}}
+      <span class="grey">Derniers articles ajoutés:</span>
+      <div class="widget widget_shopping_cart">
+
+        <div class="widget_shopping_cart_content">
+          <ul class="cart_list product_list_widget media-list darklinks">
+
+            {{# each cartItems}}
+              {{> shoppingCartItem }}
+            {{/each}}
+
+          </ul>
+          <!-- end product list -->
+          <p class="total">
+            <span class="grey">Total panier:
+              <span class="amount">{{totalCartAmount}} DHs</span>
+            </span>
+          </p>
+          <p class="buttons">
+            <a href="shop-cart-right.html" class="button-o_t6">View All</a>
+            <a href="shop-checkout-right.html" class="button-o_t6">Checkout</a>
+          </p>
+        </div>
+      </div>
+      {{else}}
+        <span class="grey">Panier vide</span>
+        <div class="widget widget_shopping_cart">
+          <span class="grey">Penser a ajouter des produits
+            <span class="amount">Dans votre panier</span>
+          </span>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</template>

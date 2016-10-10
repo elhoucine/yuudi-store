@@ -18,9 +18,11 @@ productsSchema = new SimpleSchema({
   },
   price: {
     type: Number,
+    decimal: true,
   },
   promotion: {
     type: Number,
+    decimal: true,
   },
   created: {
       type: Date,

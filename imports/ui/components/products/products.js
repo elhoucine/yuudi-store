@@ -6,3 +6,18 @@ Template.products.helpers({
     return Products.find({});
   }
 })
+
+Template.products.events({
+  'click .addToCart': (event) => {
+    const itemId = event.target.id;
+    const item = Products.find(itemId).fetch()[0];
+    Meteor.call('addToCart', item, function(err, res) {
+      if(err) {
+        console.log(err);
+      }
+      else{
+        console.log(res);
+      }
+    });
+  }
+});

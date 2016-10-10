@@ -3,12 +3,39 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 
 const Carts = new Meteor.Collection('carts');
 
+const ProductsSchema = new SimpleSchema({
+  name: {
+    type: String,
+  },
+  photoSmall:{
+    type: String,
+  },
+  price: {
+    type: Number,
+    decimal: true
+  },
+  promotion: {
+    type: Number,
+    decimal: true
+  }
+});
+
+const UserCartSchema = new SimpleSchema({
+  item: {
+    type: ProductsSchema
+  },
+  quantity: {
+    type: Number
+  }
+});
+
 CartsSchema = new SimpleSchema({
   userId: {
     type: SimpleSchema.RegEx.ObjectId
   },
   items: {
-    type: [Object]
+    type: [UserCartSchema],
+    optional: true
   },
 });
 
@@ -39,4 +66,5 @@ Carts.getCart = function(userId){
   return cart;
 };
 
+Carts.attachSchema(CartsSchema);
 export default Carts;
