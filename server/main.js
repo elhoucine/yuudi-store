@@ -18,6 +18,10 @@ import '../imports/api/packs/server/methods.js';
 
 import '../imports/api/users/users.js';
 
+// Carts
+import '../imports/api/carts/carts.js';
+import '../imports/api/carts/server/publications.js';
+import '../imports/api/carts/server/methods.js';
 
 
 import '../imports/api/products/products.js';
