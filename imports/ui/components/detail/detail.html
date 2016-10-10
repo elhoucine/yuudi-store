@@ -1,23 +1,4 @@
 <template name="detail">
-  <!-- <div class="page_breadcrumbs section_padding_85 breadcrumbs-01 parallax" style="background-position: 50% -3px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<h3 class="breadcrumbs__title text-center">Shop single</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="breadcrumbs-list text-center">
-						<li>
-							<a href="/">Home</a>
-						</li>
-						<li class="active">Shop single item</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div> -->
   <div class="ls section_padding_top_20 section_padding_bottom_55">
 		<div class="container">
 			<div class="row">
@@ -51,10 +32,10 @@
 					</div>
 					<span class="shop-item__price">
 						<span>
-							<span class="amount">$75.00</span>
+							<span class="amount">{{detail.price}} Dhs</span>
 						</span>
 					</span>
-					<p class="shop-single__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, dolorem, eaque fugit odit obcaecati temporibus est dolor consequatur totam nam facilis soluta maiores eius iste veritatis.</p>
+					<p class="shop-single__text">{{detail.details}}</p>
 					<div class="shop-single__controls">
 						<form action="/" class="single-shop-item__gty">
 							<span class="quantity form-group">
