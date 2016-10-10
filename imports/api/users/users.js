@@ -1,18 +1,6 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-UserCartSchema = new SimpleSchema({
-  item: {
-    type: Object
-  },
-  quantity: {
-    type: Number
-  }
-})
-
 UserSchema = new SimpleSchema({
-  userCart: {
-    type: UserCartSchema
-  },
     username: {
         type: String,
         // For accounts-password, either emails or username is required, but not both. It is OK to make this
