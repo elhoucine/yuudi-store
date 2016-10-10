@@ -2,10 +2,16 @@ import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
   cartItems() {
-    return Carts.find().fetch();
+    const userCart = Carts.findOne();
+    if (userCart) {
+      return [userCart.items[0], userCart.items[1], userCart.items[2]];
+    }
   },
   itemsCount(){
-    return Carts.find().count();
+    const userCart = Carts.findOne();
+    if (userCart){
+      return userCart.items.length;
+    }
   },
   totalCartAmount() {
     // TODO: Calculate the total amount
@@ -13,5 +19,8 @@ Template.shoppingCartBox.helpers({
   },
   cartIsNotEmpty() {
     return !!Carts.find().count();
+  },
+  _userCart() {
+    return Carts.findOne();
   }
 });

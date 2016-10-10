@@ -30,7 +30,7 @@ FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
   this.register('data', Meteor.subscribe('allProducts'));
   if(Meteor.userId()) {
-    this.register('data', Meteor.subscribe('carts'), Meteor.userId());
+    this.register('data', Meteor.subscribe('myCart', Meteor.userId()));
   }
 };
 
