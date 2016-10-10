@@ -48,4 +48,5 @@ Carts.getCart = function(userId){
   return cart;
 };
 
+Carts.attachSchema(CartsSchema);
 export default Carts;
