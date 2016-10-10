@@ -2,13 +2,21 @@ import { check } from 'meteor/check';
 import Carts from '../carts.js';
 
 Meteor.methods({
-  addToCart(Item) {
-    check(Item.name, String);
-    check(Item.price, Number);
+  addToCart(item, quantity=1) {
+    check(item.name, String);
+    check(item.price, Number);
 
     // Check the user is logged-in
     if(!this.userId){
       throw new Meteor.Error('Not authorized');
+    }
+
+    //A user should always have a cart.
+    if( !Carts.findOne({"userId": this.userId}) ){
+      Carts.insert({
+        userId: this.userId,
+        items: []
+      });
     }
 
     // TODO: Check the product/pack exists
@@ -16,13 +24,12 @@ Meteor.methods({
 
     //Add it to the cart
     // TODO: Check for duplication
-    cart = Carts.update(this.userId, {
+    console.log(item);
+    return Carts.update({userId: this.userId}, {
       '$push': {
-        'items': Item
+        'items': { "item": item, "quantity": quantity}
       }
     });
-
-    return cart;
   },
   removeFromCart(CartItemId) {
     check(CartItemId, String);
