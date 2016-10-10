@@ -16,6 +16,9 @@ import '../imports/api/packs/packs.js';
 import '../imports/api/packs/server/publications.js';
 import '../imports/api/packs/server/methods.js';
 
+import '../imports/api/users/users.js';
+
+
 
 import '../imports/api/products/products.js';
 import '../imports/api/products/server/publications.js';
