@@ -23,9 +23,15 @@ Meteor.methods({
     // TODO: Check the product/pack exists
 
 
-    //Add it to the cart
-    // TODO: Check for duplication
-    item.ref = item._id;
+    // Check for duplication
+    var userCart = Carts.findOne({"userId": this.userId, "items.ref": {$in: [item._id]}});
+    if(userCart){
+      // Incriment quantity
+      return Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
+        {$inc: {"items.$.quantity": 1}});
+    }
+
+    //Add new item to the cart
     return Carts.update({userId: this.userId}, {
       '$push': {
         'items': {
