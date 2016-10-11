@@ -4,7 +4,9 @@ Template.shoppingCartBox.helpers({
   cartItems() {
     const userCart = Carts.findOne();
     if (userCart) {
-      return [userCart.items[0], userCart.items[1], userCart.items[2]];
+      const items = userCart.items;
+      let l = items.length;
+      return [userCart.items[l-1], userCart.items[l-2], userCart.items[l-3]];
     }
   },
   itemsCount(){
