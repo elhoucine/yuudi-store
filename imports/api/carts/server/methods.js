@@ -3,6 +3,7 @@ import Carts from '../carts.js';
 
 Meteor.methods({
   addToCart(item, quantity=1) {
+    check(item._id, String);
     check(item.name, String);
     check(item.price, Number);
 
@@ -27,12 +28,19 @@ Meteor.methods({
     item.ref = item._id;
     return Carts.update({userId: this.userId}, {
       '$push': {
-        'items': { "item": item, "quantity": quantity}
+        'items': {
+          "ref": item._id,
+          "item": item,
+          "quantity": quantity
+        }
       }
     });
   },
-  removeFromCart(CartItemId) {
-    check(CartItemId, String);
+  /**
+  /* Remove items from Cart
+  */
+  removeFromCart(CartItemRef) {
+    check(CartItemRef, String);
 
     // Check the user is logged-in
     if(!this.userId){
@@ -40,13 +48,11 @@ Meteor.methods({
     }
 
     //Remove from the cart
-    cart = Carts.update(this.userId, {
+    return Carts.update({userId: this.userId}, {
       '$pull': {
-        'items._id': CartItemId
+        'items': { "ref": CartItemRef}
       }
     });
-
-    return cart;
   },
   updateQuantity() {
     // TODO

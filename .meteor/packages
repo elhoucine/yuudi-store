@@ -25,3 +25,5 @@ kadira:blaze-layout
 useraccounts:bootstrap
 npm-bcrypt@0.8.7
 accounts-password
+session
+underscore

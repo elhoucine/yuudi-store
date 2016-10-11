@@ -1,17 +1,24 @@
+import { Session } from 'meteor/session';
 import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
   cartItems() {
     const userCart = Carts.findOne();
-    if (userCart) {
+    if (userCart && userCart.items) {
       const items = userCart.items;
-      let l = items.length;
-      return [userCart.items[l-1], userCart.items[l-2], userCart.items[l-3]];
+      var count = 1;
+      return _.map(items, function(item) {
+        if(count < 4){
+          return item;
+          count++;
+        }
+      });
     }
   },
   itemsCount(){
     const userCart = Carts.findOne();
     if (userCart){
+      Session.set("cartIsNotEmpty", !!userCart.items.length);
       return userCart.items.length;
     }
   },
@@ -20,7 +27,7 @@ Template.shoppingCartBox.helpers({
     return 0;
   },
   cartIsNotEmpty() {
-    return !!Carts.find().count();
+    return Session.get("cartIsNotEmpty");
   },
   _userCart() {
     return Carts.findOne();
@@ -29,8 +36,8 @@ Template.shoppingCartBox.helpers({
 
 Template.shoppingCartBox.events({
   'click .remove': (event)=> {
-    const itemRef = event.target.id;
-    Meteor.call('removeFromCart', function(err, res){
+    const itemRef = event.target.id.substr(1);
+    Meteor.call('removeFromCart', itemRef, function(err, res){
       console.log('err', err);
       console.log('res', res);
     })

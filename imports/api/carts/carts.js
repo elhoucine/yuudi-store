@@ -4,9 +4,6 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 const Carts = new Meteor.Collection('carts');
 
 const ProductsSchema = new SimpleSchema({
-  ref: {
-    type: SimpleSchema.RegEx.ObjectId
-  },
   name: {
     type: String,
   },
@@ -24,6 +21,9 @@ const ProductsSchema = new SimpleSchema({
 });
 
 const UserCartSchema = new SimpleSchema({
+  ref: {
+    type: SimpleSchema.RegEx.ObjectId
+  },
   item: {
     type: ProductsSchema
   },
