@@ -9,6 +9,9 @@ import '../../ui/components/cart/shoppingCartItem.html';
 import '../../ui/components/cart/shoppingCartBox.html';
 import '../../ui/components/cart/shoppingCartBox.js';
 
+import '../../ui/components/cart/myCartFull.html';
+import '../../ui/components/cart/myCartFull.js';
+
 import '../../ui/components/header.html';
 import '../../ui/components/header.js';
 import '../../ui/components/footer.html';
@@ -52,5 +55,11 @@ FlowRouter.route('/auth', {
 FlowRouter.route('/detail/:id', {
     action: function (params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "detail", footer:"footer"});
+    }
+});
+
+FlowRouter.route('/myCart', {
+    action: function (params, queryParams) {
+        BlazeLayout.render("mainLayout", {top: "header", main: "myCartFull", footer:"footer"});
     }
 });

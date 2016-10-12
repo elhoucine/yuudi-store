@@ -1,0 +1,3 @@
+Template.myCartFull.helpers({
+
+});
