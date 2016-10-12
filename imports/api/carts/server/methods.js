@@ -60,7 +60,32 @@ Meteor.methods({
       }
     });
   },
-  updateQuantity() {
-    // TODO
+  /**
+  * Inscriment quantity by 1
+  */
+  incriment(itemId) {
+    check(itemId, String)
+
+    // Check the user is logged-in
+    if(!this.userId){
+      throw new Meteor.Error('Not authorized');
+    }
+
+    Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
+      {$inc: {"items.$.quantity": 1}});
+  },
+  /**
+  * Dicrement quantity by 1
+  */
+  incriment(itemId) {
+    check(itemId, String)
+
+    // Check the user is logged-in
+    if(!this.userId){
+      throw new Meteor.Error('Not authorized');
+    }
+
+    Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
+      {$inc: {"items.$.quantity": -1}});
   }
 });
