@@ -17,78 +17,44 @@
               </thead>
 
               <tbody>
-                <tr class="cart_item">
-                  <td class="product-info">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="shop-single-item.html">
-                          <img class="media-object cart-product-image" src="images/shop/shop_img-01.jpg" alt="">
-                        </a>
+                {{#each cartItems}}
+                  <tr class="cart_item">
+                    <td class="product-info">
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="shop-single-item.html">
+                            <img class="media-object cart-product-image" src="images/shop/shop_img-01.jpg" alt="">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <a href="shop-single-item.html">{{item.name}}</a>
+                          </h4>
+                        </div>
                       </div>
-                      <div class="media-body">
-                        <h4 class="media-heading">
-                          <a href="shop-single-item.html">At vero eos et accusam</a>
-                        </h4>
+                    </td>
+                    <td class="product-price">
+                      <span class="currencies">DHs</span>
+                      <span class="amount">{{item.price}}</span>
+                    </td>
+                    <td class="product-quantity">
+                      <div class="quantity">
+                        <input id="m{{ref}}" type="button" value="-" class="minus">
+                        <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control">
+                        <input id="p{{ref}}" type="button" value="+" class="plus">
                       </div>
-                    </div>
-                  </td>
-                  <td class="product-price">
-                    <span class="currencies">$</span>
-                    <span class="amount">199.00</span>
-                  </td>
-                  <td class="product-quantity">
-                    <div class="quantity">
-                      <input type="button" value="-" class="minus">
-                      <input type="number" step="1" min="0" name="product_quantity" value="1" title="Qty" class="form-control">
-                      <input type="button" value="+" class="plus">
-                    </div>
-                  </td>
-                  <td class="product-subtotal">
-                    <span class="currencies">$</span>
-                    <span class="amount">199.00</span>
-                  </td>
-                  <td class="product-remove">
-                    <a href="#" class="remove fontsize_24" title="Remove this item">
-                      <i class="rt-icon2-trash"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr class="cart_item">
-                  <td class="product-info">
-                    <div class="media">
-                      <div class="media-left">
-                        <a href="shop-single-item.html">
-                          <img class="media-object cart-product-image" src="images/shop/shop_img-02.jpg" alt="">
-                        </a>
-                      </div>
-                      <div class="media-body">
-                        <h4 class="media-heading">
-                          <a href="shop-single-item.html">Justo duo dolores et ea rebum</a>
-                        </h4>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="product-price">
-                    <span class="currencies">$</span>
-                    <span class="amount">100.00</span>
-                  </td>
-                  <td class="product-quantity">
-                    <div class="quantity">
-                      <input type="button" value="-" class="minus">
-                      <input type="number" step="1" min="0" name="product_quantity" value="1" title="Qty" class="form-control">
-                      <input type="button" value="+" class="plus">
-                    </div>
-                  </td>
-                  <td class="product-subtotal">
-                    <span class="currencies">$</span>
-                    <span class="amount">100.00</span>
-                  </td>
-                  <td class="product-remove">
-                    <a href="#" class="remove fontsize_24" title="Remove this item">
-                      <i class="rt-icon2-trash"></i>
-                    </a>
-                  </td>
-                </tr>
+                    </td>
+                    <td class="product-subtotal">
+                      <span class="currencies">DHs</span>
+                      <span class="amount">{{totalItemsQuantity item.price quantity}}</span>
+                    </td>
+                    <td class="product-remove">
+                      <a href="#" class="remove fontsize_24" title="Remove this item">
+                        <i class="rt-icon2-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                {{/each}}
               </tbody>
             </table>
           </div>
@@ -107,8 +73,8 @@
                   <tr class="cart-subtotal">
                     <td>Cart Subtotal</td>
                     <td>
-                      <span class="currencies">$</span>
-                      <span class="amount">299.00</span>
+                      <span class="currencies">DHs</span>
+                      <span class="amount">{{cartSubtotal}}</span>
                     </td>
                   </tr>
                   <tr class="shipping">
@@ -121,8 +87,8 @@
                     <td class="grey">Order Total</td>
                     <td>
                       <strong class="grey">
-                        <span class="currencies">$</span>
-                        <span class="amount">299.00</span>
+                        <span class="currencies">DHs</span>
+                        <span class="amount">{{totalCart}}</span>
                       </strong>
                     </td>
                   </tr>
