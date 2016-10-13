@@ -26,6 +26,14 @@ Meteor.methods({
     // Check for duplication
     var userCart = Carts.findOne({"userId": this.userId, "items.ref": {$in: [item._id]}});
     if(userCart){
+      // Check for Max increment
+      userCart.items.forEach(function(elm) {
+        if(elm.ref === item._id){
+          if(elm.quantity > 9) {
+            throw new Meteor.Error('Quantity cannot be more than 10');
+          }
+        }
+      })
       // Incriment quantity
       return Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
         {$inc: {"items.$.quantity": 1}});
