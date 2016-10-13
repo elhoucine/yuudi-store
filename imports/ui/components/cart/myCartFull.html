@@ -3,9 +3,15 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="col-lg-12 text-center">
+          <h3 class="title_t-1 title_t-1--position2 text-center">My cart</h3>
+          <p class="sub-title_t-5 title_t-1--position3 text-center">Update my cart and precess to checkout.</p>
+        </div>
+
+        <div class="col-sm-8 col-md-8 col-lg-8">
+
           <div class="table-responsive">
-            <table class="table cart-table">
+            <table id="updateCart" class="table cart-table">
               <thead>
                 <tr>
                   <td class="product-info">Product</td>
@@ -59,43 +65,7 @@
             </table>
           </div>
 
-          <div class="cart-buttons">
-            <a class="button-g_t6" href="/">Countinue Shopping</a>
-            <!-- <input type="submit" class="button-g_t6" name="update_cart" value="Update Cart"> -->
-            <button type="submit" class="button-g_t6">Proceed to Checkout</button>
-          </div>
 
-          <div class="cart-collaterals">
-            <div class="cart_totals">
-              <h4>Cart Totals</h4>
-              <table class="table">
-                <tbody>
-                  <tr class="cart-subtotal">
-                    <td>Cart Subtotal</td>
-                    <td>
-                      <span class="amount">{{cartSubtotal}}</span>
-                      <span class="currencies">DHs</span>
-                    </td>
-                  </tr>
-                  <tr class="shipping">
-                    <td>Shipping and Handling</td>
-                    <td>
-                      Free Shipping
-                    </td>
-                  </tr>
-                  <tr class="order-total">
-                    <td class="grey">Order Total</td>
-                    <td>
-                      <strong class="grey">
-                        <span class="amount">{{totalCart}}</span>
-                        <span class="currencies">DHs</span>
-                      </strong>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
 
           <!-- <div class="row">
             <div class="col-sm-6">
@@ -133,6 +103,46 @@
               </div>
             </div>
           </div> -->
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="cart-collaterals">
+            <div class="cart_totals">
+              <h4>Cart Totals</h4>
+              <table class="table">
+                <tbody>
+                  <tr class="cart-subtotal">
+                    <td>Cart Subtotal</td>
+                    <td>
+                      <span class="amount">{{cartSubtotal}}</span>
+                      <span class="currencies">DHs</span>
+                    </td>
+                  </tr>
+                  <tr class="shipping">
+                    <td>Shipping and Handling</td>
+                    <td>
+                      Free Shipping
+                    </td>
+                  </tr>
+                  <tr class="order-total">
+                    <td class="grey">Order Total</td>
+                    <td>
+                      <strong class="grey">
+                        <span class="amount">{{totalCart}}</span>
+                        <span class="currencies">DHs</span>
+                      </strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="cart-buttons">
+            <a class="button-g_t6" href="/">Countinue Shopping</a>
+            <button type="submit" class="button-g_t6">Proceed to Checkout</button>
+          </div>
+
         </div>
 
       </div>
