@@ -56,5 +56,12 @@ Template.myCartFull.events({
         console.log(err);
       }
     })
+  },
+  'click .remove': (event)=> {
+    const itemRef = event.target.id.substr(1);
+    Meteor.call('removeFromCart', itemRef, function(err, res){
+      console.log('err', err);
+      console.log('res', res);
+    })
   }
 });
