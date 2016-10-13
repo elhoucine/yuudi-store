@@ -63,7 +63,7 @@ Meteor.methods({
   /**
   * Inscriment quantity by 1
   */
-  incriment(itemId) {
+  increment(itemId) {
     check(itemId, String)
 
     // Check the user is logged-in
@@ -71,13 +71,25 @@ Meteor.methods({
       throw new Meteor.Error('Not authorized');
     }
 
-    Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
+    // Max increment
+    var cart = Carts.findOne({"userId": this.userId, "items.ref": {$in: [itemId]}});
+    if(cart) {
+      cart.items.forEach(function(elm) {
+        if(elm.ref === itemId){
+          if(elm.quantity > 9) {
+            throw new Meteor.Error('Quantity cannot be more than 10');
+          }
+        }
+      })
+    }
+
+    Carts.update({"userId": this.userId, "items.ref": {$in: [itemId]}, "items.quantity": {$lt: 10}},
       {$inc: {"items.$.quantity": 1}});
   },
   /**
   * Dicrement quantity by 1
   */
-  incriment(itemId) {
+  decrement(itemId) {
     check(itemId, String)
 
     // Check the user is logged-in
@@ -85,7 +97,18 @@ Meteor.methods({
       throw new Meteor.Error('Not authorized');
     }
 
-    Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
+    var cart = Carts.findOne({"userId": this.userId, "items.ref": {$in: [itemId]}});
+    if(cart) {
+      cart.items.forEach(function(elm) {
+        if(elm.ref === itemId){
+          if(elm.quantity <= 1) {
+            throw new Meteor.Error('Quantity cannot be les than 1');
+          }
+        }
+      })
+    }
+
+    Carts.update({"userId": this.userId, "items.ref": {$in: [itemId]}},
       {$inc: {"items.$.quantity": -1}});
   }
 });

@@ -31,16 +31,30 @@ Template.myCartFull.helpers({
     var totalUtilities = shipping + packaging;
     var total = Session.get('cartSubtotal') + totalUtilities;
     return total;
+  },
+  disableIncrement(quantity) {
+    return quantity === 10;
+  },
+  disableDecrement(quantity) {
+    return quantity === 1;
   }
 });
 
 Template.myCartFull.events({
   'click .minus': function(event) {
     const productRef = event.target.id.substr(1);
-    console.log('minus', productRef);
+    Meteor.call("decrement", productRef, function(err, res) {
+      if(err) {
+        console.log(err);
+      }
+    })
   },
   'click .plus': function(event) {
     const productRef = event.target.id.substr(1);
-    console.log('plus', productRef);
+    Meteor.call("increment", productRef, function(err, res) {
+      if(err) {
+        console.log(err);
+      }
+    })
   }
 });

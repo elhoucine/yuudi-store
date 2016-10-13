@@ -39,9 +39,9 @@
                     </td>
                     <td class="product-quantity">
                       <div class="quantity">
-                        <input id="m{{ref}}" type="button" value="-" class="minus">
+                        <input id="m{{ref}}" disabled="{{disableDecrement quantity}}" type="button" value="-" class="minus">
                         <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control">
-                        <input id="p{{ref}}" type="button" value="+" class="plus">
+                        <input id="p{{ref}}" disabled="{{disableIncrement quantity}}" type="button" value="+" class="plus">
                       </div>
                     </td>
                     <td class="product-subtotal">
