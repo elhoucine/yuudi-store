@@ -14,53 +14,61 @@
             <table id="updateCart" class="table cart-table">
               <thead>
                 <tr>
-                  <td class="product-info">Product</td>
-                  <td class="product-price-td">Price</td>
-                  <td class="product-quantity">Quantity</td>
-                  <td class="product-subtotal">Subtotal</td>
+                  <td class="product-info">Produit</td>
+                  <td class="product-price-td">Prix</td>
+                  <td class="product-quantity">Quantité</td>
+                  <td class="product-subtotal">Total</td>
                   <td class="product-remove">&nbsp;</td>
                 </tr>
               </thead>
 
               <tbody>
-                {{#each cartItems}}
-                  <tr class="cart_item">
-                    <td class="product-info">
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="detail/{{ref}}?detail=produit">
-                            <img class="media-object cart-product-image" src="{{item.photoSmall}}" alt="">
-                          </a>
+                {{#if cartItems}}
+                  {{#each cartItems}}
+                    <tr class="cart_item">
+                      <td class="product-info">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="detail/{{ref}}?detail=produit">
+                              <img class="media-object cart-product-image" src="{{item.photoSmall}}" alt="">
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading">
+                              <a href="detail/{{ref}}?detail=produit">{{item.name}}</a>
+                            </h4>
+                          </div>
                         </div>
-                        <div class="media-body">
-                          <h4 class="media-heading">
-                            <a href="detail/{{ref}}?detail=produit">{{item.name}}</a>
-                          </h4>
+                      </td>
+                      <td class="product-price">
+                        <span class="amount">{{item.price}}</span>
+                        <span class="currencies">DHs</span>
+                      </td>
+                      <td class="product-quantity">
+                        <div class="quantity">
+                          <input id="m{{ref}}" disabled="{{disableDecrement quantity}}" type="button" value="-" class="minus">
+                          <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control">
+                          <input id="p{{ref}}" disabled="{{disableIncrement quantity}}" type="button" value="+" class="plus">
                         </div>
-                      </div>
-                    </td>
-                    <td class="product-price">
-                      <span class="currencies">DHs</span>
-                      <span class="amount">{{item.price}}</span>
-                    </td>
-                    <td class="product-quantity">
-                      <div class="quantity">
-                        <input id="m{{ref}}" disabled="{{disableDecrement quantity}}" type="button" value="-" class="minus">
-                        <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control">
-                        <input id="p{{ref}}" disabled="{{disableIncrement quantity}}" type="button" value="+" class="plus">
-                      </div>
-                    </td>
-                    <td class="product-subtotal">
-                      <span class="currencies">DHs</span>
-                      <span class="amount">{{totalItemsQuantity item.price quantity}}</span>
-                    </td>
-                    <td class="product-remove">
-                      <a href="#" class="remove fontsize_24" title="Remove this item">
-                        <i id="r{{ref}}" class="rt-icon2-trash"></i>
-                      </a>
+                      </td>
+                      <td class="product-subtotal">
+                        <span class="amount">{{totalItemsQuantity item.price quantity}}</span>
+                        <span class="currencies">DHs</span>
+                      </td>
+                      <td class="product-remove">
+                        <a href="#" class="remove fontsize_24" title="Remove this item">
+                          <i id="r{{ref}}" class="rt-icon2-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  {{/each}}
+                {{else}}
+                  <tr>
+                    <td colspan="4">
+                      <span style="text-align:center;display:block">Votre panier est vide</span>
                     </td>
                   </tr>
-                {{/each}}
+                {{/if}}
               </tbody>
             </table>
           </div>
@@ -108,24 +116,24 @@
         <div class="col-sm-4 col-md-4 col-lg-4">
           <div class="cart-collaterals">
             <div class="cart_totals">
-              <h4>Cart Totals</h4>
+              <h4>Panier totaux</h4>
               <table class="table">
                 <tbody>
                   <tr class="cart-subtotal">
-                    <td>Cart Subtotal</td>
+                    <td>Panier Total</td>
                     <td>
                       <span class="amount">{{cartSubtotal}}</span>
                       <span class="currencies">DHs</span>
                     </td>
                   </tr>
                   <tr class="shipping">
-                    <td>Shipping and Handling</td>
+                    <td>Livraison et Frais de Port</td>
                     <td>
-                      Free Shipping
+                      Gratuit
                     </td>
                   </tr>
                   <tr class="order-total">
-                    <td class="grey">Order Total</td>
+                    <td class="grey">Total de commande</td>
                     <td>
                       <strong class="grey">
                         <span class="amount">{{totalCart}}</span>
@@ -139,8 +147,8 @@
           </div>
 
           <div class="cart-buttons">
-            <a class="button-g_t6" href="/">Countinue Shopping</a>
-            <button type="submit" class="button-g_t6">Proceed to Checkout</button>
+            <a class="button-g_t6" href="/">Continue Shopping</a>
+            <button type="submit" class="button-g_t6">Passer la Commande</button>
           </div>
 
         </div>
