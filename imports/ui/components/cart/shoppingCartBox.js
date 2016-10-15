@@ -3,27 +3,34 @@ import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
   cartItems() {
-    var userCart = Carts.findOne();
+    // Anonymous
     if(!Meteor.userId()){
       userCart = JSON.parse(window.localStorage.getItem("userCart"));
+      Session.get("userCart", userCart);
+      return showItems(userCart)
     }
-    console.log("yoo");
-    console.log(userCart);
 
-    if (userCart && userCart.items) {
-      const items = userCart.items;
-      var count = 1;
-      return _.map(items, function(item) {
-        if(count < 4){
-          return item;
-          count++;
-        }
-      });
+    // Connected
+    var userCart = Carts.findOne();
+    showItems(userCart);
+
+    function showItems() {
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        var count = 1;
+        return _.map(items, function(item) {
+          if(count < 4){
+            return item;
+            count++;
+          }
+        });
+      }
     }
   },
   itemsCount(){
     var userCart = Carts.findOne();
     if(!Meteor.userId()){
+      Session.get("userCart", userCart);
       userCart = JSON.parse(window.localStorage.getItem("userCart"));
     }
     if (userCart){
