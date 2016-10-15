@@ -42,14 +42,23 @@ AccountsTemplates.configure({
     // Texts
     texts: {
       button: {
-          signUp: "S'enregistrer!"
+          signUp: "S'enregistrer!",
+          signIn: "Connexion"
       },
+      signUpLink_pre: "Vous avez pas un compte ?",
+      signUpLink_link: "Inscription",
       socialSignUp: "S'enregistrer",
       socialIcons: {
           "meteor-developer": "fa fa-rocket"
       },
       title: {
-          forgotPwd: "Mot de passe oublier ?"
+          forgotPwd: "Mot de passe oublier ?",
+          changePwd: "Password Title",
+          enrollAccount: "Enroll Title",
+          resetPwd: "Reset Pwd Title",
+          signIn: "",
+          signUp: "",
+          verifyEmail: "Verify Email Title",
       },
     },
 });

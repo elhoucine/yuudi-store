@@ -26,6 +26,7 @@ import '../../ui/components/detail/detail.html';
 
 import '../../ui/components/detail/detail.js';
 
+import '../../ui/components/userAuth/connexion.html';
 import '../../ui/components/userAuth/auth.html';
 import '../../ui/components/main.html';
 
@@ -45,9 +46,8 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/auth', {
+FlowRouter.route('/connexion', {
     action: function(params, queryParams) {
-        console.log("Hello auth");
         BlazeLayout.render("mainLayout", {top: "header", main: "authentification", footer:"footer"});
     }
 });
@@ -58,7 +58,7 @@ FlowRouter.route('/detail/:id', {
     }
 });
 
-FlowRouter.route('/myCart', {
+FlowRouter.route('/panier', {
     action: function (params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "myCartFull", footer:"footer"});
     }
