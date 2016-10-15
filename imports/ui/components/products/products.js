@@ -33,7 +33,7 @@ addToCartAnonymous = function(item) {
     return;
   }
   //A user should always have a cart.
-  var userCart = JSON.parse(window.localStorage.getItem("userCart")) || [];
+  var userCart = JSON.parse(window.localStorage.getItem("userCart")) || {items: []};
   if(!userCart){
     window.localStorage.setItem("userCart", JSON.Stringify(userCart));
   }
@@ -41,7 +41,7 @@ addToCartAnonymous = function(item) {
   // TODO: Check the product/pack exists
 
   // Check for duplication & Increment quantity
-  var duplication = _.find(userCart, function(elm) {
+  var duplication = _.find(userCart.items, function(elm) {
     if(elm.ref === item._id){
       if(elm.quantity > 9){
         return true;
@@ -52,7 +52,7 @@ addToCartAnonymous = function(item) {
   });
 
   if(!duplication) {
-    userCart.push({ref: item._id, item: item, quantity: 1});
+    userCart.items.push({ref: item._id, item: item, quantity: 1});
   }
 
   //Save cart.
