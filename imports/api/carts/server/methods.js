@@ -140,7 +140,7 @@ Meteor.methods({
     }
 
     // If the user has no saved items in cart
-    if(!userCart.items){
+    if(userCart.items.length <= 0){
       return Carts.update({"userId": this.userId}, {$set: {"items": anonymousCart.items}});
     }else{
       // Merging.
