@@ -3,7 +3,6 @@ import Carts from '/imports/api/carts/carts.js';
 
 Template.myCartFull.helpers({
   cartItems() {
-    // Anonymous
     if(!Meteor.userId()){
       var userCart = Session.get("userCart");
       return showItems(userCart)
@@ -20,11 +19,12 @@ Template.myCartFull.helpers({
       }
     }
   },
+  /*----------*/
   totalItemsQuantity(itemPrice, quantity){
-    return itemPrice*quantity;
+    return itemPrice * quantity;
   },
+  /*----------*/
   cartSubtotal() {
-    // Anonymous
     if(!Meteor.userId()){
       const userCart = Session.get("userCart");
       return calculateTotalPrice(userCart);
@@ -43,6 +43,7 @@ Template.myCartFull.helpers({
       }
     }
   },
+  /*----------*/
   totalCart() {
     const shipping = 0;
     const packaging = 0;
@@ -50,23 +51,21 @@ Template.myCartFull.helpers({
     var total = Session.get('cartSubtotal') + totalUtilities;
     return total;
   },
+  /*----------*/
   disableIncrement(quantity) {
     return quantity === 10;
   },
+  /*----------*/
   disableDecrement(quantity) {
     return quantity === 1;
   }
 });
 
 Template.myCartFull.events({
-  /**
-  * Decrement item
-  *
-  */
+  /*----------*/
   'click .minus': function(event) {
     const productRef = event.target.id.substr(1);
 
-    // Anonymous
     if(!Meteor.userId()){
       var userCart = Session.get("userCart");
       var item = _.find(userCart.items, function(elm) {
@@ -89,14 +88,10 @@ Template.myCartFull.events({
       }
     })
   },
-  /**
-  * Increment item
-  *
-  */
+  /*----------*/
   'click .plus': function(event) {
     const productRef = event.target.id.substr(1);
 
-    // Anonymous
     if(!Meteor.userId()){
       var userCart = Session.get("userCart");
       var item = _.find(userCart.items, function(elm) {
@@ -119,14 +114,10 @@ Template.myCartFull.events({
       }
     })
   },
-  /**
-  * Remove item
-  *
-  */
+  /*----------*/
   'click .remove': (event)=> {
     const itemRef = event.target.id.substr(1);
 
-    // Anonymous
     if(!Meteor.userId()){
       var userCart = Session.get("userCart");
       var position = userCart.items.map(function(elm) { return elm.ref }).indexOf(itemRef);
