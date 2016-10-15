@@ -37,7 +37,6 @@ AccountsTemplates.configure({
     onLogoutHook: function() {
       console.log("We like you!");
       console.log("See you soon!");
-      // Session.clear("userCart");
     },
     /*----------*/
     onSubmitHook: function(error, state) {
@@ -47,8 +46,8 @@ AccountsTemplates.configure({
           // TODO: Merge anonymous cart with user Cart.
           console.log("yooo yes");
           Meteor.call("mergeAnonymousCartToUserCart", userCart, function(err, res) {
-            console.log(err);
-            console.log(res);
+            // TODO: Clear client
+            // Session.clear("userCart");
           })
         }
       }
