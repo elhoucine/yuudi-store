@@ -45,9 +45,14 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/auth', {
+FlowRouter.route('/connexion', {
     action: function(params, queryParams) {
-        console.log("Hello auth");
+        BlazeLayout.render("mainLayout", {top: "header", main: "authentification", footer:"footer"});
+    }
+});
+
+FlowRouter.route('/déconnexion', {
+    action: function(params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "authentification", footer:"footer"});
     }
 });
@@ -58,7 +63,7 @@ FlowRouter.route('/detail/:id', {
     }
 });
 
-FlowRouter.route('/myCart', {
+FlowRouter.route('/panier', {
     action: function (params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "myCartFull", footer:"footer"});
     }
