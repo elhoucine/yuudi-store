@@ -33,9 +33,9 @@ addToCartAnonymous = function(item) {
     return;
   }
   //A user should always have a cart.
-  var userCart = JSON.parse(window.localStorage.getItem("userCart")) || {items: []};
+  var userCart = Session.get("userCart") || {items: []};
   if(!userCart){
-    window.localStorage.setItem("userCart", JSON.Stringify(userCart));
+    Session.set("userCart", userCart);
   }
 
   // TODO: Check the product/pack exists
@@ -55,7 +55,6 @@ addToCartAnonymous = function(item) {
     userCart.items.push({ref: item._id, item: item, quantity: 1});
   }
 
-  //Save cart.
-  window.localStorage.setItem("userCart", JSON.stringify(userCart));
+  //Save cart
   Session.set("userCart", userCart);
 }

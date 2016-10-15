@@ -5,8 +5,7 @@ Template.shoppingCartBox.helpers({
   cartItems() {
     // Anonymous
     if(!Meteor.userId()){
-      userCart = JSON.parse(window.localStorage.getItem("userCart"));
-      Session.get("userCart", userCart);
+      var userCart = Session.get("userCart", userCart);
       return showItems(userCart)
     }
 
@@ -28,10 +27,11 @@ Template.shoppingCartBox.helpers({
     }
   },
   itemsCount(){
+    // Connected
     var userCart = Carts.findOne();
+    // or anonymous
     if(!Meteor.userId()){
-      Session.get("userCart", userCart);
-      userCart = JSON.parse(window.localStorage.getItem("userCart"));
+      userCart = Session.get("userCart");
     }
     if (userCart){
       Session.set("cartIsNotEmpty", !!userCart.items.length);
@@ -45,9 +45,6 @@ Template.shoppingCartBox.helpers({
   cartIsNotEmpty() {
     return Session.get("cartIsNotEmpty");
   },
-  _userCart() {
-    return Carts.findOne();
-  }
 });
 
 Template.shoppingCartBox.events({
