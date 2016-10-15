@@ -6,7 +6,7 @@ Template.shoppingCartBox.helpers({
   cartItems() {
     // Anonymous
     if(!Meteor.userId()){
-      var userCart = Session.get("userCart", userCart);
+      var userCart = Session.get("userCart");
       return showItems(userCart)
     }
 
