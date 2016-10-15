@@ -57,4 +57,5 @@ addToCartAnonymous = function(item) {
 
   //Save cart.
   window.localStorage.setItem("userCart", JSON.stringify(userCart));
+  Session.set("userCart", userCart);
 }
