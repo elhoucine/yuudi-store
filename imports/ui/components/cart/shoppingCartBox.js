@@ -51,6 +51,17 @@ Template.shoppingCartBox.helpers({
 Template.shoppingCartBox.events({
   'click .remove': (event)=> {
     const itemRef = event.target.id.substr(1);
+
+    // Anonymous
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      var position = userCart.items.map(function(elm) { return elm.ref }).indexOf(itemRef);
+      var deleted = userCart.items.splice(position, 1);
+      Session.setPersistent("userCart", userCart);
+      return;
+    }
+
+    // Connected user
     Meteor.call('removeFromCart', itemRef, function(err, res){
       console.log('err', err);
       console.log('res', res);
