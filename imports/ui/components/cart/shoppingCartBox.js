@@ -3,7 +3,13 @@ import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
   cartItems() {
-    const userCart = Carts.findOne();
+    var userCart = Carts.findOne();
+    if(!Meteor.userId()){
+      userCart = JSON.parse(window.localStorage.getItem("userCart"));
+    }
+    console.log("yoo");
+    console.log(userCart);
+
     if (userCart && userCart.items) {
       const items = userCart.items;
       var count = 1;
@@ -16,7 +22,10 @@ Template.shoppingCartBox.helpers({
     }
   },
   itemsCount(){
-    const userCart = Carts.findOne();
+    var userCart = Carts.findOne();
+    if(!Meteor.userId()){
+      userCart = JSON.parse(window.localStorage.getItem("userCart"));
+    }
     if (userCart){
       Session.set("cartIsNotEmpty", !!userCart.items.length);
       return userCart.items.length;
