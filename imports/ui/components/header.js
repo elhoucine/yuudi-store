@@ -11,3 +11,7 @@ Template.header.rendered = function() {
     autoArrows:  true
   });
 }
+
+Template.header.events({
+  
+})
