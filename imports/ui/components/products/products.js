@@ -35,7 +35,7 @@ addToCartAnonymous = function(item) {
   //A user should always have a cart.
   var userCart = Session.get("userCart") || {items: []};
   if(!userCart){
-    Session.set("userCart", userCart);
+    Session.setPersistent("userCart", userCart);
   }
 
   // TODO: Check the product/pack exists
@@ -56,5 +56,5 @@ addToCartAnonymous = function(item) {
   }
 
   //Save cart
-  Session.set("userCart", userCart);
+  Session.setPersistent("userCart", userCart);
 }

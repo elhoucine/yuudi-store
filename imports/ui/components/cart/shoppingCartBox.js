@@ -1,4 +1,5 @@
-import { Session } from 'meteor/session';
+// import { Session } from 'meteor/session';
+// import { Session } from 'meteor/u2622:persistent-session';
 import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
