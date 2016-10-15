@@ -10,7 +10,7 @@ Template.myCartFull.helpers({
 
     // Connected
     var userCart = Carts.findOne();
-    showItems(userCart);
+    return showItems(userCart);
 
     function showItems() {
       if (userCart && userCart.items) {
@@ -32,7 +32,7 @@ Template.myCartFull.helpers({
 
     // Connected
     const userCart = Carts.findOne();
-    calculateTotalPrice(userCart);
+    return calculateTotalPrice(userCart);
 
     function calculateTotalPrice(userCart){
       if (userCart && userCart.items) {

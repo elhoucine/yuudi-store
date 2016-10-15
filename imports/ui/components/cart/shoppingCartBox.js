@@ -12,7 +12,7 @@ Template.shoppingCartBox.helpers({
 
     // Connected
     var userCart = Carts.findOne();
-    showItems(userCart);
+    return showItems(userCart);
 
     function showItems() {
       if (userCart && userCart.items) {
