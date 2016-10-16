@@ -36,7 +36,7 @@ Meteor.methods({
       })
       // Incriment quantity
       return Carts.update({"userId": this.userId, "items.ref": {$in: [item._id]}},
-        {$inc: {"items.$.quantity": 1}});
+        {$inc: {"items.$.quantity": quantity}});
     }
 
     //Add new item to the cart
@@ -118,5 +118,36 @@ Meteor.methods({
 
     Carts.update({"userId": this.userId, "items.ref": {$in: [itemId]}},
       {$inc: {"items.$.quantity": -1}});
+  },
+  /**
+  * Merge anonymous cart in user cart
+  */
+  mergeAnonymousCartToUserCart(anonymousCart) {
+    check(anonymousCart, Object);
+
+    // Check the user is logged-in
+    if(!this.userId){
+      throw new Meteor.Error('Not authorized');
+    }
+
+    //A user should always have a cart.
+    const userCart = Carts.findOne({"userId": this.userId});
+    if( !userCart ){
+      Carts.insert({
+        userId: this.userId,
+        items: []
+      });
+    }
+
+    // If the user has no saved items in cart
+    if(userCart.items.length <= 0){
+      return Carts.update({"userId": this.userId}, {$set: {"items": anonymousCart.items}});
+    }else{
+      // Merging.
+      anonymousCart.items.forEach(function(elm) {
+        return Meteor.call("addToCart", elm.item, elm.quantity);
+      })
+    }
+
   }
 });

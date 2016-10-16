@@ -34,8 +34,24 @@ AccountsTemplates.configure({
     redirectTimeout: 4000,
 
     // Hooks
-    // onLogoutHook: myLogoutFunc,
-    // onSubmitHook: mySubmitFunc,
+    onLogoutHook: function() {
+      console.log("We like you!");
+      console.log("See you soon!");
+    },
+    /*----------*/
+    onSubmitHook: function(error, state) {
+      if(state && Meteor.userId()) {
+        const userCart = Session.get("userCart");
+        if(userCart && userCart.items) {
+          // TODO: Merge anonymous cart with user Cart.
+          console.log("yooo yes");
+          Meteor.call("mergeAnonymousCartToUserCart", userCart, function(err, res) {
+            // TODO: Clear client
+            // Session.clear("userCart");
+          })
+        }
+      }
+    },
     // preSignUpHook: myPreSubmitFunc,
     // postSignUpHook: myPostSubmitFunc,
 

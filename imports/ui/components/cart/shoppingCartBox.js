@@ -1,18 +1,18 @@
-import { Session } from 'meteor/session';
+// import { Session } from 'meteor/session';
+// import { Session } from 'meteor/u2622:persistent-session';
 import Carts from '/imports/api/carts/carts.js';
 
 Template.shoppingCartBox.helpers({
   cartItems() {
     // Anonymous
     if(!Meteor.userId()){
-      userCart = JSON.parse(window.localStorage.getItem("userCart"));
-      Session.get("userCart", userCart);
+      var userCart = Session.get("userCart");
       return showItems(userCart)
     }
 
     // Connected
     var userCart = Carts.findOne();
-    showItems(userCart);
+    return showItems(userCart);
 
     function showItems() {
       if (userCart && userCart.items) {
@@ -28,10 +28,11 @@ Template.shoppingCartBox.helpers({
     }
   },
   itemsCount(){
+    // Connected
     var userCart = Carts.findOne();
+    // or anonymous
     if(!Meteor.userId()){
-      Session.get("userCart", userCart);
-      userCart = JSON.parse(window.localStorage.getItem("userCart"));
+      userCart = Session.get("userCart");
     }
     if (userCart){
       Session.set("cartIsNotEmpty", !!userCart.items.length);
@@ -45,14 +46,22 @@ Template.shoppingCartBox.helpers({
   cartIsNotEmpty() {
     return Session.get("cartIsNotEmpty");
   },
-  _userCart() {
-    return Carts.findOne();
-  }
 });
 
 Template.shoppingCartBox.events({
   'click .remove': (event)=> {
     const itemRef = event.target.id.substr(1);
+
+    // Anonymous
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      var position = userCart.items.map(function(elm) { return elm.ref }).indexOf(itemRef);
+      var deleted = userCart.items.splice(position, 1);
+      Session.setPersistent("userCart", userCart);
+      return;
+    }
+
+    // Connected user
     Meteor.call('removeFromCart', itemRef, function(err, res){
       console.log('err', err);
       console.log('res', res);

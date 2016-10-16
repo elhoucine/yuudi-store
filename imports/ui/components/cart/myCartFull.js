@@ -3,62 +3,130 @@ import Carts from '/imports/api/carts/carts.js';
 
 Template.myCartFull.helpers({
   cartItems() {
-    const userCart = Carts.findOne();
-    if (userCart && userCart.items) {
-      const items = userCart.items;
-      return items;
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      return showItems(userCart)
+    }
+
+    // Connected
+    var userCart = Carts.findOne();
+    return showItems(userCart);
+
+    function showItems() {
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        return items;
+      }
     }
   },
-  totalItemsQuantity(itemsPrice, quantity){
-    return itemsPrice*quantity;
+  /*----------*/
+  totalItemsQuantity(itemPrice, quantity){
+    return itemPrice * quantity;
   },
+  /*----------*/
   cartSubtotal() {
+    if(!Meteor.userId()){
+      const userCart = Session.get("userCart");
+      return calculateTotalPrice(userCart);
+    }
+
+    // Connected
     const userCart = Carts.findOne();
-    if (userCart && userCart.items) {
-      const items = userCart.items;
-      var price = 0;
-      items.forEach(function(elm) {
-        price += (elm.item.price * elm.quantity);
-      });
-      Session.set('cartSubtotal', price);
-      return price;
+    return calculateTotalPrice(userCart);
+
+    function calculateTotalPrice(userCart){
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        var sum = _.reduce(items, function(memo, elm){return memo + (elm.item.price*elm.quantity)}, 0);
+        Session.set('cartSubtotal', sum);
+        return sum;
+      }
     }
   },
+  /*----------*/
   totalCart() {
-    // TODO: Calculate total.
     const shipping = 0;
     const packaging = 0;
     var totalUtilities = shipping + packaging;
     var total = Session.get('cartSubtotal') + totalUtilities;
     return total;
   },
+  /*----------*/
   disableIncrement(quantity) {
     return quantity === 10;
   },
+  /*----------*/
   disableDecrement(quantity) {
     return quantity === 1;
   }
 });
 
 Template.myCartFull.events({
+  /*----------*/
   'click .minus': function(event) {
     const productRef = event.target.id.substr(1);
+
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      var item = _.find(userCart.items, function(elm) {
+        if(elm.ref === productRef){
+          if(elm.quantity <= 1){
+            return true;
+          }
+          elm.quantity--;
+          return true;
+        }
+      });
+      Session.setPersistent("userCart", userCart);
+      return;
+    }
+
+    // Connected
     Meteor.call("decrement", productRef, function(err, res) {
       if(err) {
         console.log(err);
       }
     })
   },
+  /*----------*/
   'click .plus': function(event) {
     const productRef = event.target.id.substr(1);
+
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      var item = _.find(userCart.items, function(elm) {
+        if(elm.ref === productRef){
+          if(elm.quantity > 9){
+            return true;
+          }
+          elm.quantity++;
+          return true;
+        }
+      });
+      Session.setPersistent("userCart", userCart);
+      return;
+    }
+
+    // Connected
     Meteor.call("increment", productRef, function(err, res) {
       if(err) {
         console.log(err);
       }
     })
   },
+  /*----------*/
   'click .remove': (event)=> {
     const itemRef = event.target.id.substr(1);
+
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      var position = userCart.items.map(function(elm) { return elm.ref }).indexOf(itemRef);
+      var deleted = userCart.items.splice(position, 1);
+      Session.setPersistent("userCart", userCart);
+      return;
+    }
+
+    // Connected
     Meteor.call('removeFromCart', itemRef, function(err, res){
       console.log('err', err);
       console.log('res', res);
