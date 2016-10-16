@@ -40,7 +40,23 @@ Template.shoppingCartBox.helpers({
     }
   },
   totalCartAmount() {
-    // TODO: Calculate the total amount
+    if(!Meteor.userId()){
+      const userCart = Session.get("userCart");
+      return calculateTotalPrice(userCart);
+    }
+
+    // Connected
+    const userCart = Carts.findOne();
+    return calculateTotalPrice(userCart);
+
+    function calculateTotalPrice(userCart){
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        var sum = _.reduce(items, function(memo, elm){return memo + (elm.item.price*elm.quantity)}, 0);
+        return sum;
+      }
+    }
+
     return 0;
   },
   cartIsNotEmpty() {
