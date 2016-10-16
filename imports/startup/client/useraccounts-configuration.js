@@ -37,10 +37,13 @@ AccountsTemplates.configure({
     onLogoutHook: function() {
       console.log("We like you!");
       console.log("See you soon!");
+      FlowRouter.go('/');
+      FlowRouter.reload();
     },
     /*----------*/
     onSubmitHook: function(error, state) {
       if(state && Meteor.userId()) {
+        FlowRouter.go('/');
         const userCart = Session.get("userCart");
         if(userCart && userCart.items) {
           // TODO: Merge anonymous cart with user Cart.
