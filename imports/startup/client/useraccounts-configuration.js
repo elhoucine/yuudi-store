@@ -46,8 +46,9 @@ AccountsTemplates.configure({
           // TODO: Merge anonymous cart with user Cart.
           console.log("yooo yes");
           Meteor.call("mergeAnonymousCartToUserCart", userCart, function(err, res) {
-            // TODO: Clear client
-            // Session.clear("userCart");
+            if(!err){
+              Session.clear("userCart");
+            }
           })
         }
       }
