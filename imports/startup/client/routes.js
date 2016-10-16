@@ -46,6 +46,12 @@ FlowRouter.route('/', {
     }
 });
 
+FlowRouter.route('/checkout', {
+    action: function(params, queryParams) {
+      BlazeLayout.render("mainLayout", {top: "header", main: "checkout", footer:"footer"});
+    }
+});
+
 FlowRouter.route('/connexion', {
     action: function(params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "authentification", footer:"footer"});
