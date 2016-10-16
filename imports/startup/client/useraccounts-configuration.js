@@ -61,6 +61,7 @@ AccountsTemplates.configure({
 
     // Texts
     texts: {
+      navSignOut: "Déconnexion",
       button: {
           signUp: "S'enregistrer!",
           signIn: "Connexion"

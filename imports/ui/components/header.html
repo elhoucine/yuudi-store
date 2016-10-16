@@ -74,18 +74,25 @@
                 <li class="active">
                   <a href="/">Accueil</a>
                 </li>
-                <!-- Contact -->
+                <!-- Panier -->
                 <li>
-                  <a href="/">Contacts</a>
+                  <a href="/panier">Panier</a>
                 </li>
                 <!-- A propos -->
                 <li>
                   <a href="/">A propos</a>
                 </li>
+                <!-- Contact -->
+                <li>
+                  <a href="/">Contacts</a>
+                </li>
+                {{#if currentUser}}
+                {{else}}
                 <!-- Connexion -->
                 <li>
                   <a href="/connexion">Connexion</a>
                 </li>
+                {{/if}}
               </ul>
             </nav>
             <!-- eof main nav -->
