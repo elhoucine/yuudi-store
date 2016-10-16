@@ -13,5 +13,8 @@ Template.header.rendered = function() {
 }
 
 Template.header.events({
-  
+  "click .toggle_menu": function () {
+    jQuery('.toggle_menu').toggleClass('mobile-active');
+    jQuery('.page_header').toggleClass('mobile-active');
+  }
 })
