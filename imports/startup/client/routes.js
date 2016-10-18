@@ -9,6 +9,9 @@ import '../../ui/components/cart/shoppingCartItem.html';
 import '../../ui/components/cart/shoppingCartBox.html';
 import '../../ui/components/cart/shoppingCartBox.js';
 
+import '../../ui/components/checkout/checkout.html';
+import '../../ui/components/checkout/checkout.js';
+
 import '../../ui/components/cart/myCartFull.html';
 import '../../ui/components/cart/myCartFull.js';
 
