@@ -1,7 +1,14 @@
 import Products from '/imports/api/products/products.js';
 import './product.html';
 
+Template.products.onCreated( function () {
+  this.documents = this.subscribe('allProducts');
+})
+
 Template.products.helpers({
+  packsReady: function() {
+    return Template.instance().documents.ready();
+  },
   products() {
     return Products.find({});
   }
