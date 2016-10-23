@@ -4,6 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 // Import to load these templates
 import '../../ui/layouts/mainLayout.html';
+import '../../ui/layouts/mainLayout.js';
 
 import '../../ui/components/cart/shoppingCartItem.html';
 import '../../ui/components/cart/shoppingCartBox.html';

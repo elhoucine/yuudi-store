@@ -15,11 +15,11 @@ packsSchema = new SimpleSchema({
   details: {
     type: String,
   },
-  photoBig: {
+  photoCover:{
     type: String
   },
-  photoSmall:{
-    type: String
+  photos:{
+    type: [String]
   },
   price: {
     type: Number,

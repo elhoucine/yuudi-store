@@ -9,9 +9,13 @@
         <div class="col-lg-12">
           <div class="home-shop-feed">
             <ul id="products" class="products list-unstyled grid-view shop-feed-t2">
-              {{#each products}}
-                {{> product}}
-              {{/each}}
+              {{#if packsReady}}
+                {{#each products}}
+                  {{> product}}
+                {{/each}}
+              {{else}}
+                <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+              {{/if}}
             </ul>
           </div>
         </div>

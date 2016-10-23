@@ -5,19 +5,22 @@
 				<div class="col-lg-5 col-md-5 col-sm-5 text-sm-center">
 
 					<!-- Shop img -->
+
 					<div class="shop-flexslider">
 						<ul class="slides">
-							<li data-thumb="/images/shop/single_shop/shop_img-12-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;" class="flex-active-slide">
-								<img src="/images/shop/shop_img-12.jpg" alt="" draggable="false">
-							</li>
-							<li data-thumb="/images/shop/single_shop/shop_img-11-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
-								<img src="/images/shop/shop_img-11.jpg" alt="" draggable="false">
-							</li>
-							<li data-thumb="/images/shop/single_shop/shop_img-10-thumb.jpg" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
-								<img src="/images/shop/shop_img-10.jpg" alt="" draggable="false">
-							</li>
+              {{#each detail.photos}}
+                {{#if @index = 0}}
+    							<li data-thumb="{{this}}" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;" class="flex-active-slide">
+    								<img src="{{this}}" alt="" draggable="false">
+    							</li>
+                {{else}}
+    							<li data-thumb="{{this}}" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" class="">
+    								<img src="{{this}}" alt="" draggable="false">
+    							</li>
+                {{/if}}
+							{{/each}}
 						</ul>
-					<ol class="flex-control-nav flex-control-thumbs"><li><img src="/images/shop/single_shop/shop_img-12-thumb.jpg" class="flex-active" draggable="false"></li><li><img src="/images/shop/single_shop/shop_img-11-thumb.jpg" draggable="false" class=""></li><li><img src="/images/shop/single_shop/shop_img-10-thumb.jpg" draggable="false" class=""></li></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div>
+          <ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#">Previous</a></li><li class="flex-nav-next"><a class="flex-next" href="#">Next</a></li></ul></div>
 				</div>
 				<div class="col-lg-7 col-md-7 col-sm-7">
 					<h3 class="shop-single__title">{{detail.name}}</h3>
@@ -46,10 +49,10 @@
 							<button type="button" class="button-g_t5">Add To Cart</button>
 						</form>
 					</div>
-					<div class="shop-single__category">
+					<!-- <div class="shop-single__category">
 						<span>Category:</span>
 						<a href="#">Fruits</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

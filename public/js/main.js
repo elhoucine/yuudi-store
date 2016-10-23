@@ -3,7 +3,7 @@
 
 
 function pieChart() {
- 
+
  //circle progress bar
  if (jQuery().easyPieChart) {
 	// var count = 0 ;
@@ -16,14 +16,14 @@ function pieChart() {
 		var imagePos = $currentChart.offset().top;
 		var topOfWindow = jQuery(window).scrollTop();
 		if (imagePos < topOfWindow+900) {
-		
+
 		var size = $currentChart.data('size') ? $currentChart.data('size') : 130;
 		var line = $currentChart.data('line') ? $currentChart.data('line') : 9;
 		var bgcolor = $currentChart.data('bgcolor') ? $currentChart.data('bgcolor') : '#ededed';
 		var trackcolor = $currentChart.data('trackcolor') ? $currentChart.data('trackcolor') : '#c14240';
 		var speed = $currentChart.data('speed') ? $currentChart.data('speed') : 3000;
-		
-		
+
+
 		$currentChart.easyPieChart({
 			barColor: trackcolor,
 			trackColor: bgcolor,
@@ -48,7 +48,7 @@ function pieChart() {
 function affixSidebarInit() {
 	var $affixAside = jQuery('.affix-aside');
 	if ($affixAside.length) {
-	
+
 	//on stick and unstick event
 	$affixAside.on('affix.bs.affix', function(e) {
 		var affixWidth = $affixAside.width();
@@ -103,7 +103,7 @@ function documentReadyInit() {
 			if ($form.find('[aria-required="true"], [required]').hasClass('invalid')) {
 				return;
 			}
-			
+
 			//sending form data to PHP server if fields are not empty
 			var request = $form.serialize();
 			var ajax = jQuery.post( "contact-form.php", request )
@@ -114,7 +114,7 @@ function documentReadyInit() {
 					jQuery($form).find('[type="submit"]').attr('disabled', false).parent().append('<span class="contact-form-respond highlight">Mail cannot be sent. You need PHP server to send mail.</span>');
 			})
 	});
-	
+
 	//search modal
 	jQuery(".search_modal_button").on('click', function(e){
 		e.preventDefault();
@@ -127,20 +127,20 @@ function documentReadyInit() {
 		var $form = jQuery(this);
 		var $searchModal = jQuery('#search_modal');
 		$searchModal.find('div.searchform-respond').remove();
-		
+
 		//checking on empty values
 		jQuery($form).find('[type="text"]').each(function(index) {
 			if (!jQuery(this).val().length) {
 				jQuery(this).addClass('invalid').on('focus', function(){jQuery(this).removeClass('invalid')});
 			}
 		});
-		
+
 		//if one of form fields is empty - exit
 		if ($form.find('[type="text"]').hasClass('invalid')) {
 			return;
 		}
 		$searchModal.modal('show');
-		
+
 		//sending form data to PHP server if fields are not empty
 		var request = $form.serialize();
 		var ajax = jQuery.post( "search.php", request )
@@ -176,11 +176,11 @@ function documentReadyInit() {
 			avatar_size: 48,
 			loading_text: 'loading twitter feed...',
 			join_text: 'auto',
-			username: 'ThemeForest', 
+			username: 'ThemeForest',
 			template: "{avatar}<div class=\"tweet_right\">{time}{join}<span class=\"tweet_text\">{tweet_text}</span></div>"
 		});
 	}
-	
+
 	//mainmenu
 	if (jQuery().superfish) {
 		jQuery('ul.sf-menu').superfish({
@@ -238,12 +238,12 @@ function documentReadyInit() {
 			theme: 'facebook' /* light_rounded / dark_rounded / light_square / dark_square / facebook / pp_default*/
 		});
 	}
-	
+
 	//carousel
 	if (jQuery().carousel) {
 			jQuery('.carousel').carousel();
 	}
-	
+
 	//owl carousel
 	if (jQuery().owlCarousel) {
 		jQuery('.owl-carousel').each(function() {
@@ -288,7 +288,7 @@ function documentReadyInit() {
 			})
 		});
 	} //eof owl-carousel
-	
+
 	//comingsoon counter
 	if (jQuery().countdown) {
 		//today date plus month for demo purpose
@@ -296,8 +296,8 @@ function documentReadyInit() {
 		demoDate.setMonth(demoDate.getMonth()+1);
 		jQuery('#comingsoon-countdown').countdown({until: demoDate});
 	}
-	
-	
+
+
 	/////////
 	//shop///
 	/////////
@@ -311,9 +311,9 @@ function documentReadyInit() {
 	if (jQuery().elevateZoom) {
 		jQuery('#product-image').elevateZoom({
 			gallery: 'product-image-gallery',
-			cursor: 'pointer', 
-			galleryActiveClass: 'active', 
-			responsive:true, 
+			cursor: 'pointer',
+			galleryActiveClass: 'active',
+			responsive:true,
 			loadingIcon: 'img/AjaxLoader.gif'
 		});
 	}
@@ -369,12 +369,12 @@ function documentReadyInit() {
 		jQuery( ".slider_price_max" ).val( jQuery( ".slider-range-price" ).slider( "values", 1 ) );
 	}
 
-	//color filter 
+	//color filter
 	jQuery(".color-filters").find("a[data-background-color]").each(function() {
 		jQuery(this).css({"background-color" : jQuery(this).data("background-color")});
 	});
 
-	
+
 	//background image teaser
 	jQuery(".bg_teaser").each(function(){
 		var $teaser = jQuery(this);
@@ -385,7 +385,7 @@ function documentReadyInit() {
 		}
 	});
 
-	//bootstrap tab - show first tab 
+	//bootstrap tab - show first tab
 	jQuery('.nav-tabs').each(function() {
 		jQuery(this).find('a').first().tab('show');
 	});
@@ -393,7 +393,7 @@ function documentReadyInit() {
 		jQuery(this).find('.tab-pane').first().addClass('fade in');
 	});
 
-	//bootstrap collapse - show first tab 
+	//bootstrap collapse - show first tab
 	jQuery('.panel-group').each(function() {
 		jQuery(this).find('a').first().filter('.collapsed').trigger('click');
 	});
@@ -409,7 +409,7 @@ function windowLoadInit() {
 
 	//chart
 	pieChart();
-	
+
 	//flexslider
 	if (jQuery().flexslider) {
 		var $introSlider = jQuery(".intro_section .flexslider");
@@ -418,9 +418,9 @@ function windowLoadInit() {
 			var $currentSlider = jQuery(this);
 			$currentSlider.flexslider({
 				animation: "fade",
-				pauseOnHover: true, 
+				pauseOnHover: true,
 				useCSS: true,
-				controlNav: true,   
+				controlNav: true,
 				directionNav: true,
 				prevText: "Prev",
 				nextText: "Next",
@@ -456,7 +456,7 @@ function windowLoadInit() {
 				},
 		// });
 		})
-			
+
 		//wrapping nav with container
 		.find('.flex-control-nav')
 		.wrap('<div class="container nav-container"/>')
@@ -465,14 +465,14 @@ function windowLoadInit() {
 
 		jQuery(".flexslider").each(function(index){
 			var $currentSlider = jQuery(this);
-			//exit if intro slider already activated 
+			//exit if intro slider already activated
 			if ($currentSlider.find('.flex-active-slide').length) {
 				return;
 			}
 			$currentSlider.flexslider({
 				animation: "fade",
 				useCSS: true,
-				controlNav: true,   
+				controlNav: true,
 				directionNav: false,
 				prevText: "",
 				nextText: "",
@@ -511,20 +511,20 @@ function windowLoadInit() {
 			$header.parent().css({height: $header.outerHeight()});
 		});
 	}
-	
+
 	///////////////
 	//aside affix//
 	///////////////
 	affixSidebarInit();
-	
+
 	//preloader
 	jQuery(".preloaderimg").fadeOut();
 	jQuery(".preloader").delay(200).fadeOut("slow").delay(200, function(){
 		jQuery(this).remove();
 	});
-	
+
 	jQuery('body').scrollspy('refresh');
-	
+
 	//animation to elements on scroll
 	if (jQuery().appear) {
 		jQuery('.to_animate').appear();
@@ -536,7 +536,7 @@ function windowLoadInit() {
 						self.addClass("animated " + animationClass);
 				}, index * animationDelay);
 		});
-		
+
 		jQuery('body').on('appear', '.to_animate', function(e, $affected ) {
 			jQuery($affected).each(function(index){
 				var self = jQuery(this);
@@ -569,7 +569,7 @@ function windowLoadInit() {
 			});
 		});
 	}
-	
+
 	//bootstrap animated progressbar
 	if (jQuery().appear) {
 		if (jQuery().progressbar) {
@@ -594,7 +594,7 @@ function windowLoadInit() {
 			});
 		}
 	}
-	
+
 	//flickr
 	// use http://idgettr.com/ to find your ID
 	if (jQuery().jflickrfeed) {
@@ -612,7 +612,7 @@ function windowLoadInit() {
 			});
 		});
 	}
-	
+
 	//video images preview
 	jQuery('.embed-placeholder').each(function(){
 			jQuery(this).on('click', function(e) {
@@ -624,7 +624,7 @@ function windowLoadInit() {
 
 jQuery(document).ready(function() {
 	documentReadyInit();
-	
+
 	// The slider being synced must be initialized first
 	$('#carousel').flexslider({
 		animation: "slide",
@@ -635,7 +635,7 @@ jQuery(document).ready(function() {
 		itemMargin: 5,
 		asNavFor: '#slider'
 	});
- 
+
 	$('#slider').flexslider({
 		animation: "slide",
 		controlNav: false,
@@ -643,8 +643,8 @@ jQuery(document).ready(function() {
 		slideshow: false,
 		sync: "#carousel"
 	});
-	
-	
+
+
 	// Can also be used with $(document).ready()
 	$(window).load(function() {
 		$('.shop-flexslider').flexslider({
@@ -653,10 +653,10 @@ jQuery(document).ready(function() {
 			controlNav: "thumbnails"
 		});
 	});
-	
-	
-	
-	
+
+
+
+
 	jQuery('.page-breadcrumbs__title').each(function () {
 		this.innerHTML = this.innerHTML.replace( /^(.+?\s)/, '<span>$1</span>' );
 	});
@@ -678,7 +678,7 @@ jQuery(document).ready(function() {
 			}
 		}
 	});
-	
+
 	$("#gallery_blog-carousel").owlCarousel({
 		items : 4,
 		nav: true,
@@ -696,13 +696,13 @@ jQuery(document).ready(function() {
 			}
 		}
 	});
-	
+
 }); //end of "document ready" event
 
 jQuery(window).load(function(){
 	windowLoadInit();
-	
-	
+
+
 	$('.gallery-banners').isotope({
 		itemSelector: '.gallery-banners-item',
 		masonry: {
@@ -711,14 +711,14 @@ jQuery(window).load(function(){
 			gutter: 18
 		}
 	});
-	
-	
+
+
 }); //end of "window load" event
 
 jQuery(window).resize(function(){
-	
+
 	jQuery('body').scrollspy('refresh');
-	
+
 	//header processing
 	var $header = jQuery('.page_header').first();
 		//checking document scrolling position
