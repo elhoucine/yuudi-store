@@ -19,7 +19,7 @@ productsSchema = new SimpleSchema({
     type: String
   },
   photos:{
-    type: Array
+    type: [String]
   },
   price: {
     type: Number,

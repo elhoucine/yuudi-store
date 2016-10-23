@@ -16,7 +16,7 @@ packsSchema = new SimpleSchema({
     type: String,
   },
   photoCover:{
-    type: String
+    type: String,
   },
   photos:{
     type: [String]
