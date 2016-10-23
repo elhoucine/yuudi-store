@@ -82,3 +82,9 @@ FlowRouter.route('/contact', {
         BlazeLayout.render("mainLayout", {top: "header", main: "contact", footer:"footer"});
     }
 });
+
+FlowRouter.route('/yuudi', {
+    action: function (params, queryParams) {
+        BlazeLayout.render("mainLayout", {top: "header", main: "about", footer:"footer"});
+    }
+});
