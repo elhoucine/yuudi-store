@@ -37,6 +37,9 @@ import '../../ui/components/main.html';
 import  '../../ui/pages/contact/contact.html';
 import  '../../ui/pages/contact/contact.js';
 
+import  '../../ui/pages/about/about.html';
+import  '../../ui/pages/about/about.js';
+
 // Subscriptions
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
