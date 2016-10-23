@@ -34,6 +34,9 @@ import '../../ui/components/userAuth/connexion.html';
 import '../../ui/components/userAuth/auth.html';
 import '../../ui/components/main.html';
 
+import  '../../ui/pages/contact.html';
+import  '../../ui/pages/contact.js';
+
 // Subscriptions
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
@@ -71,5 +74,11 @@ FlowRouter.route('/detail/:id', {
 FlowRouter.route('/panier', {
     action: function (params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "myCartFull", footer:"footer"});
+    }
+});
+
+FlowRouter.route('/contact', {
+    action: function (params, queryParams) {
+        BlazeLayout.render("mainLayout", {top: "header", main: "contact", footer:"footer"});
     }
 });
