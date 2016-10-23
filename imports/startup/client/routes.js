@@ -34,8 +34,8 @@ import '../../ui/components/userAuth/connexion.html';
 import '../../ui/components/userAuth/auth.html';
 import '../../ui/components/main.html';
 
-import  '../../ui/pages/contact.html';
-import  '../../ui/pages/contact.js';
+import  '../../ui/pages/contact/contact.html';
+import  '../../ui/pages/contact/contact.js';
 
 // Subscriptions
 FlowRouter.subscriptions = function() {
