@@ -7,7 +7,7 @@ const ProductsSchema = new SimpleSchema({
   name: {
     type: String,
   },
-  photoSmall:{
+  photoCover:{
     type: String,
   },
   price: {

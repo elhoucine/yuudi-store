@@ -47,7 +47,6 @@ AccountsTemplates.configure({
         const userCart = Session.get("userCart");
         if(userCart && userCart.items) {
           // TODO: Merge anonymous cart with user Cart.
-          console.log("yooo yes");
           Meteor.call("mergeAnonymousCartToUserCart", userCart, function(err, res) {
             if(!err){
               Session.clear("userCart");
