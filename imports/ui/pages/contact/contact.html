@@ -1,49 +1,86 @@
 <template name="contact">
-  <div class="contacts-t_1">
-				<div class="contacts-t_1_block-1 text-right">
-					<div class="contacts-t_1_block-1-wrapp">
-						<span class="contacts-t_1__logo">
-							<!-- <img class="yuudi-logo" src="/images/yuudi-logo.png" alt=""> -->
-						</span>
-						<ul class="contact-list_t1 text-center">
-							<li>
-								<i class="rt-icon2-location2"></i>
-								<p>9 bd Koronfol, Casablanca.</p>
-							</li>
-							<li>
-								<i class="fa fa-mobile" aria-hidden="true"></i>
-								<p>0522 01 02 03</p>
-							</li>
-							<li>
-								<i class="fa fa-clock-o" aria-hidden="true"></i>
-								<p>08 H - 19 H.</p>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="contacts-t_1_block-2 parallax" style="background-position: 50% -3px;">
-					<form class="contact-form form__cont-02" method="post" action="/">
-						<p class="form__text text-left">Send Your Request and we will get in touch with you as soon as possible</p>
-						<label class="label__name" for="name">
-							<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control name" placeholder="Full Name">
-						</label>
-						<label class="label__email" for="email">
-							<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control email" placeholder="Email">
-						</label>
-						<label class="label__phone" for="phone">
-							<input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control phone" placeholder="Phone number">
-						</label>
-						<label class="label__message" for="message">
-							<textarea aria-required="true" rows="6" cols="30" name="message" id="message" class="form-control message" placeholder="Message"></textarea>
-						</label>
-						<div class="text-left">
-							<button type="submit" class="button-o_t5" id="contact_form_submit" name="contact_submit">Add To Cart</button>
+  <div class="page_breadcrumbs section_padding_85 breadcrumbs-01 parallax" style="background-position: 50% 1px;">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<h3 class="breadcrumbs__title text-center">Entrer en contact</h3>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 
-      <div class="ls section_padding_bottom_20">
+  <div class="ls section_padding_top_10 form_position">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 text-lg-center">
+							<ul class="contact-list text-lg-left">
+								<li class="contact-list_address">9 bd Koronfol, Casablanca</li>
+								<li class="contact-list_phone"><span>0522</span> 01 02 03</li>
+								<li class="contact-work-time">8:00 H - 19:00 H</li>
+							</ul>
+							<h4 class="contact-social__title">Follow Us:</h4>
+							<ul class="contact-social">
+								<li>
+									<a href="#">
+										<i class="cont__pinterest"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="cont__instagram"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="cont__google"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="cont__twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="cont__facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="cont__dribbble"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-lg-9 text-right text-md-center">
+							<div class="form__bg">
+								<form class="contact-form form__cont-01" method="post" action="/">
+									<p class="form__text text-left">Envoyez votre demande et nous prendrons contact avec vous dès que possible.</p>
+									<label class="label__name" for="name">
+										<input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control name" placeholder="Nom et prénom" required>
+									</label>
+									<label class="label__email" for="email">
+										<input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control email" placeholder="Email" required>
+									</label>
+									<label class="label__phone" for="phone">
+										<input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control phone" placeholder="Numéro de téléphone" required>
+									</label>
+									<label class="label__message" for="message">
+										<textarea aria-required="true" rows="6" cols="30" name="message" id="message" class="form-control message" placeholder="Message" required></textarea>
+									</label>
+									<div class="text-left">
+										<button type="submit" class="button-o_t5" id="contact_form_submit" name="contact_submit">Envoyer le message</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+      <div class="page_map"></div>
+
+      <div class="ls section_padding_bottom_50">
 				<div class="container">
 				</div>
 			</div>
