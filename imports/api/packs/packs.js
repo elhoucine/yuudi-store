@@ -9,7 +9,7 @@ packsSchema = new SimpleSchema({
   },
   name: {
     type: String,
-    label: "Product name",
+    label: "Pack name",
     max: 200
   },
   details: {
@@ -23,9 +23,11 @@ packsSchema = new SimpleSchema({
   },
   price: {
     type: Number,
+    decimal: true,
   },
   promotion: {
     type: Number,
+    decimal: true,
   },
   created: {
       type: Date,

@@ -4,17 +4,22 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 const Products = new Meteor.Collection('products');
 
 productsSchema = new SimpleSchema({
+  published: {
+    type: Boolean,
+  },
   name: {
     type: String,
+    label: "Product name",
+    max: 200
   },
   details: {
     type: String,
   },
-  photoBig: {
+  photoCover: {
     type: String
   },
-  photoSmall:{
-    type: String
+  photos:{
+    type: Array
   },
   price: {
     type: Number,
