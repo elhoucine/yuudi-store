@@ -58,6 +58,11 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/checkout', {
     action: function(params, queryParams) {
+      // Login or create account before checkout.
+      if(!Meteor.userId()){
+        Session.set("loginForCheckout", true);
+        FlowRouter.go('/connexion');
+      }
       BlazeLayout.render("mainLayout", {top: "header", main: "checkout", footer:"footer"});
     }
 });

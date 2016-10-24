@@ -43,7 +43,11 @@ AccountsTemplates.configure({
     /*----------*/
     onSubmitHook: function(error, state) {
       if(state && Meteor.userId()) {
-        FlowRouter.go('/');
+        // Need to complete checkout or go to Home ?
+        var redirectPage = Session.get("loginForCheckout") ? "/checkout" : "/";
+        Session.set("loginForCheckout", false);
+        FlowRouter.go(redirectPage);
+
         const userCart = Session.get("userCart");
         if(userCart && userCart.items) {
           // TODO: Merge anonymous cart with user Cart.
