@@ -3,7 +3,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 
 const Products = new Meteor.Collection('products');
 
-productsSchema = new SimpleSchema({
+const productsSchema = new SimpleSchema({
   published: {
     type: Boolean,
   },

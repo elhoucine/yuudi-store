@@ -32,7 +32,7 @@ const UserCartSchema = new SimpleSchema({
   }
 });
 
-CartsSchema = new SimpleSchema({
+const CartsSchema = new SimpleSchema({
   userId: {
     type: SimpleSchema.RegEx.ObjectId
   },
