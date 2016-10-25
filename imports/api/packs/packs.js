@@ -3,7 +3,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 const Packs = new Meteor.Collection('packs');
 
-packsSchema = new SimpleSchema({
+const packsSchema = new SimpleSchema({
   published: {
     type: Boolean,
   },
