@@ -2,3 +2,31 @@
 .yuudi-logo{
   max-width: 200px;
 }
+.cartPopUp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:50px;
+  border-radius:25px;
+  background: #fff;
+  box-shadow: 0px 0px 8px -2px #909e1a;
+  display:none;
+  cursor: pointer;
+}
+.cart{
+  width: 60px;
+  height: 50px;
+  position: relative;
+}
+.cart i{
+  position: absolute;
+  top: 16px;
+  left: 25px;
+  font-size: 18px;
+}
+.cart span{
+  position: absolute;
+  top: 12px;
+  left: 11px;
+}
