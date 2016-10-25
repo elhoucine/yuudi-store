@@ -34,7 +34,7 @@ Template.products.events({
 });
 
 
-addToCartAnonymous = function(item) {
+addToCartAnonymous = function(item, quantity=1) {
   // Check the user is Anonymous
   if(Meteor.userId()) {
     return;
@@ -59,7 +59,7 @@ addToCartAnonymous = function(item) {
   });
 
   if(!duplication) {
-    userCart.items.push({ref: item._id, item: item, quantity: 1});
+    userCart.items.push({ref: item._id, item: item, quantity: quantity});
   }
 
   //Save cart

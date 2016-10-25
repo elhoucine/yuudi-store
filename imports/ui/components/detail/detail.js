@@ -55,7 +55,7 @@ Template.detail.events({
         }
       });
     }else {
-      addToCartAnonymous(item);
+      addToCartAnonymous(item, quantity);
     }
   }
 })
