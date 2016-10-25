@@ -20,6 +20,7 @@ import '../imports/api/packs/server/methods.js';
 
 // Users
 import '../imports/api/users/users.js';
+import '../imports/api/users/server/methods.js';
 
 // Carts
 import '../imports/api/carts/carts.js';
