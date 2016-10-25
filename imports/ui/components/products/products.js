@@ -53,7 +53,7 @@ addToCartAnonymous = function(item, quantity=1) {
       if(elm.quantity > 9){
         return true;
       }
-      elm.quantity++;
+      elm.quantity = parseInt(elm.quantity) + parseInt(quantity);
       return true;
     }
   });

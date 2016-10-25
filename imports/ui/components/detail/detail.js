@@ -42,7 +42,14 @@ Template.detail.events({
   /*----------*/
   'click .addToCart': (event) => {
     const itemId = event.target.id;
-    const item = Products.find(itemId).fetch()[0];
+    var item;
+    var query = FlowRouter.getQueryParam("detail");
+    if(query == "pack"){
+      item = Packs.find(itemId).fetch()[0];
+    }else if(query == "produit"){
+      item = Products.find(itemId).fetch()[0];
+    }
+
     const quantity = $(".detailQuantity").val()
 
     if(Meteor.userId()){
