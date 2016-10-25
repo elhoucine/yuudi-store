@@ -66,6 +66,7 @@ Template.shoppingCartBox.helpers({
 
 Template.shoppingCartBox.events({
   'click .remove': (event)=> {
+    event.preventDefault();
     const itemRef = event.target.id.substr(1);
 
     // Anonymous

@@ -24,3 +24,38 @@ Template.detail.helpers({
     }
   }
 })
+
+Template.detail.events({
+  'click .minus': function(event) {
+    if($(".detailQuantity").val() > 1){
+      var qte = $(".detailQuantity").val();
+      $(".detailQuantity").val(--qte)
+    }
+  },
+  /*----------*/
+  'click .plus': function(event) {
+    if($(".detailQuantity").val() < 10){
+      var qte = $(".detailQuantity").val();
+      $(".detailQuantity").val(++qte)
+    }
+  },
+  /*----------*/
+  'click .addToCart': (event) => {
+    const itemId = event.target.id;
+    const item = Products.find(itemId).fetch()[0];
+    const quantity = $(".detailQuantity").val()
+
+    if(Meteor.userId()){
+      Meteor.call('addToCart', item, quantity, function(err, res) {
+        if(err) {
+          console.log(err);
+        }
+        else{
+          console.log(res);
+        }
+      });
+    }else {
+      addToCartAnonymous(item);
+    }
+  }
+})
