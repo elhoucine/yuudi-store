@@ -1,5 +1,5 @@
 Template.checkout.rendered = function() {
-  $("#step1 a").toggleClass("inStep");
+  // $("#step1 a").toggleClass("inStep");
   // $("#step3 a").toggleClass("inStep");
 }
 
