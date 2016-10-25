@@ -1,7 +1,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 userProfile = new SimpleSchema({
-  fullname: {
+  fullName: {
     type: String,
   },
   address: {
@@ -9,6 +9,7 @@ userProfile = new SimpleSchema({
   },
   phoneNumber: {
     type: String,
+    regEx: /^0[5-6][0-9]{8}$/,
   }
 });
 
