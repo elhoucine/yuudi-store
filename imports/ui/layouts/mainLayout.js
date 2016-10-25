@@ -16,7 +16,7 @@ Template.mainLayout.helpers({
     }
     if (userCart){
       Session.set("cartIsNotEmpty", !!userCart.items.length);
-      return userCart.items.length;
+      return userCart.items.length || 0;
     }
   }
 });
