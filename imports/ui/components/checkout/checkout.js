@@ -1,14 +1,14 @@
 Template.checkout.rendered = function() {
   $("#step1 a").toggleClass("inStep");
-  $("#step2 a").toggleClass("inStep");
+  // $("#step3 a").toggleClass("inStep");
 }
 
 Template.checkout.helpers({
   stepOne() {
-    return false;
+    return true;
   },
   stepTwo() {
-    return true;
+    return false;
   },
   stepThree() {
     return false;
