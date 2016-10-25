@@ -1,17 +1,22 @@
 Template.checkout.rendered = function() {
   // $("#step1 a").toggleClass("inStep");
   // $("#step3 a").toggleClass("inStep");
+  console.log(this);
+}
+
+Template.checkout.created = function() {
+  Session.set("steps", "step1");
 }
 
 Template.checkout.helpers({
   stepOne() {
-    return true;
+    return Session.equals("steps", "step1");
   },
   stepTwo() {
-    return false;
+    return Session.equals("steps", "step2");
   },
   stepThree() {
-    return false;
+    return Session.equals("steps", "step3");
   }
 });
 
@@ -29,7 +34,21 @@ Template.checkout.events({
         console.log(err);
       }else {
         console.log(res);
+        $("#step1-form").fadeOut(500);
+        $("#step2 a").toggleClass("inStep");
+        $("#step2-form").fadeIn(500);
+        Session.set("steps", "step2");
       }
     });
+  },
+  'click #place_order2': function(event) {
+    console.log("step2 go");
+    $("#step2-form").fadeOut(500);
+    $("#step3 a").toggleClass("inStep");
+    $("#step3-form").fadeIn(500);
+    Session.set("steps", "step3");
+  },
+  'click #place_order3': function(event) {
+    console.log("Confirmed");
   }
 });
