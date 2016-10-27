@@ -1,10 +1,6 @@
 import Carts from '/imports/api/carts/carts.js';
 
-Template.checkout.rendered = function() {
-  // $("#step1 a").toggleClass("inStep");
-  // $("#step3 a").toggleClass("inStep");
-  console.log(this);
-}
+Template.checkout.rendered = function() {}
 
 Template.checkout.created = function() {
   Session.set("steps", "step1");
@@ -71,7 +67,6 @@ Template.checkout.helpers({
 Template.checkout.events({
   'submit #step1-form': function(event) {
     event.preventDefault();
-    console.log("form submitted");
     const fullName = event.target.billing_full_name.value;
     const city = event.target.billing_city.value;
     const address = event.target.billing_address_1.value;
