@@ -1,3 +1,5 @@
+import Carts from '/imports/api/carts/carts.js';
+
 Template.checkout.rendered = function() {
   // $("#step1 a").toggleClass("inStep");
   // $("#step3 a").toggleClass("inStep");
@@ -9,6 +11,52 @@ Template.checkout.created = function() {
 }
 
 Template.checkout.helpers({
+  cartItems() {
+    if(!Meteor.userId()){
+      var userCart = Session.get("userCart");
+      return showItems(userCart)
+    }
+
+    // Connected
+    var userCart = Carts.findOne();
+    return showItems(userCart);
+
+    function showItems() {
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        return items;
+      }
+    }
+  },
+  totalItemsQuantity(itemPrice, quantity){
+    return itemPrice * quantity;
+  },
+  cartSubtotal() {
+    if(!Meteor.userId()){
+      const userCart = Session.get("userCart");
+      return calculateTotalPrice(userCart);
+    }
+
+    // Connected
+    const userCart = Carts.findOne();
+    return calculateTotalPrice(userCart);
+
+    function calculateTotalPrice(userCart){
+      if (userCart && userCart.items) {
+        const items = userCart.items;
+        var sum = _.reduce(items, function(memo, elm){return memo + (elm.item.price*elm.quantity)}, 0);
+        Session.set('cartSubtotal', sum);
+        return sum;
+      }
+    }
+  },
+  totalCart() {
+    const shipping = 0;
+    const packaging = 0;
+    var totalUtilities = shipping + packaging;
+    var total = Session.get('cartSubtotal') + totalUtilities;
+    return total;
+  },
   stepOne() {
     return Session.equals("steps", "step1");
   },
