@@ -8,7 +8,7 @@ if( Products.find().count() < 1){
       details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       photoCover: "/images/banan.jpg",
       photos:["/images/banan.jpg"],
-      price:10,
+      price:15,
       promotion:8.99});
 
   Products.insert({
@@ -17,7 +17,7 @@ if( Products.find().count() < 1){
       details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       photoCover: "/images/orange.jpg",
       photos:["/images/orange.jpg"],
-      price:8,
+      price:12,
       promotion:8.99});
 
   Products.insert({
@@ -26,7 +26,7 @@ if( Products.find().count() < 1){
       details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       photoCover: "/images/apple.jpg",
       photos:["/images/apple.jpg"],
-      price:7,
+      price:19,
       promotion:8.99});
 
   Products.insert({
@@ -35,7 +35,7 @@ if( Products.find().count() < 1){
       details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       photoCover: "/images/black_grape.jpg",
       photos:["/images/black_grape.jpg"],
-      price:7,
+      price:18,
       promotion:8.99});
 
   Products.insert({
@@ -44,6 +44,6 @@ if( Products.find().count() < 1){
       details: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       photoCover: "/images/green_grape.jpg",
       photos:["/images/green_grape.jpg"],
-      price:7,
+      price:19,
       promotion:8.99});
 }
