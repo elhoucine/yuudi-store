@@ -47,4 +47,5 @@ const productsSchema = new SimpleSchema({
   },
 });
 
+Products.attachSchema(productsSchema);
 export default Products;

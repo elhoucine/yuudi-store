@@ -76,7 +76,6 @@ Template.checkout.events({
       if(err){
         console.log(err);
       }else {
-        console.log(res);
         $("#step1-form").fadeOut(500);
         $("#step2 a").toggleClass("inStep");
         $("#step2-form").fadeIn(500);
@@ -85,11 +84,15 @@ Template.checkout.events({
     });
   },
   'click #place_order2': function(event) {
-    console.log("step2 go");
     $("#step2-form").fadeOut(500);
     $("#step3 a").toggleClass("inStep");
     $("#step3-form").fadeIn(500);
     Session.set("steps", "step3");
+    Meteor.call("addOrder", function(err, res) {
+      if(err){
+        console.log(err);
+      }
+    });
   },
   'click #place_order3': function(event) {
     console.log("Confirmed");

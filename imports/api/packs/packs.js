@@ -47,4 +47,5 @@ const packsSchema = new SimpleSchema({
   },
 })
 
+Packs.attachSchema(packsSchema);
 export default Packs;

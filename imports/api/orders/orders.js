@@ -4,22 +4,13 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 const Orders = new Meteor.Collection('orders');
 
 const productSchema = new SimpleSchema({
-  published: {
-    type: Boolean,
-  },
   name: {
     type: String,
     label: "Pack name",
     max: 200
   },
-  details: {
-    type: String,
-  },
   photoCover:{
     type: String,
-  },
-  photos:{
-    type: [String]
   },
   price: {
     type: Number,
@@ -28,22 +19,6 @@ const productSchema = new SimpleSchema({
   promotion: {
     type: Number,
     decimal: true,
-  },
-  created: {
-      type: Date,
-      autoValue: function () {
-          if (this.isInsert) {
-              return new Date();
-          } else {
-              this.unset();
-          }
-      }
-  },
-  modified: {
-      type: Date,
-      autoValue: function () {
-          return new Date();
-      }
   },
 });
 
@@ -88,4 +63,5 @@ const OrdersSchema = new SimpleSchema({
   },
 });
 
+Orders.attachSchema(OrdersSchema);
 export default Orders;
