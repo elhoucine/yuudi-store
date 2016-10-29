@@ -3,9 +3,9 @@
     <!-- Steps -->
     <div id="crumbs">
     	<ul>
-    		<li id="step1"><a class="inStep" href="#1"><i class="fa fa-shopping-bag" aria-hidden="true"></i>  Adresse</a></li>
-    		<li id="step2"><a class="" href="#2"><i class="fa fa-cart-plus" aria-hidden="true"></i>  Résumé</a></li>
-    		<li id="step3"><a class="" href="#3"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  Validation</a></li>
+    		<li id="step1"><a class="inStep" href="#1"><i class="fa fa-shopping-bag" aria-hidden="true"></i>  Information</a></li>
+    		<li id="step2"><a class="" href="#2"><i class="fa fa-cart-plus" aria-hidden="true"></i>  Validation</a></li>
+    		<li id="step3"><a class="" href="#3"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>  Resumé</a></li>
     	</ul>
     </div>
 
@@ -144,7 +144,8 @@
                         </li>
                       </ul>
                       <div class="place-order">
-                        <input type="submit" class="button-g_t6" name="checkout_place_order" id="place_order2" value="Suivant">
+                        <input type="submit" class="button-g_t6" name="checkout_place_order" id="place_order2" value="Valider la commande">
+                        <input type="submit" class="button-o_t6 success" name="checkout_place_order" id="update_order2" value="Changer les infos">
                       </div>
                     </div>
                   </div>
@@ -154,8 +155,8 @@
               {{#if stepThree}}
               <div class="col-md-2 col-lg-3"></div>
               <div class="col-sm-12 col-md-8 col-lg-6">
-                Merci! <br />
-                TODO:VALIDATE COMMANDE
+                <p>Merci! nous avons reçus votre commande, et nous allons vous contacter par téléphone, dans quelques instants.</p>
+                <p>Total de la commande est {{totalCart}} DHs.</p>
               </div>
               {{/if}}
             {{/if}}

@@ -93,5 +93,11 @@ Template.checkout.events({
   },
   'click #place_order3': function(event) {
     console.log("Confirmed");
+  },
+  'click #update_order2': function(event) {
+    $("#step2 a").toggleClass("inStep");
+    $("#step2-form").fadeOut(500);
+    Session.set("steps", "step1");
+    $("#step1-form").fadeIn(500);
   }
 });
