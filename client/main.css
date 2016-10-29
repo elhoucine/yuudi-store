@@ -30,3 +30,15 @@
   top: 12px;
   left: 11px;
 }
+.shop-single__controls .quantity .plus{
+  bottom: 0px;
+  height: 18px;
+  width: 36px;
+  right: 0px;
+}
+.shop-single__controls .quantity .minus{
+  top: 0px;
+  height: 18px;
+  width: 36px;
+  right: 0px;
+}
