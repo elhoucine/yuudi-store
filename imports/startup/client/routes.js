@@ -40,6 +40,9 @@ import  '../../ui/pages/contact/contact.js';
 import  '../../ui/pages/about/about.html';
 import  '../../ui/pages/about/about.js';
 
+//landing pages
+import '../../ui/layouts/landingPage.html';
+
 // Subscriptions
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));
@@ -53,6 +56,13 @@ FlowRouter.subscriptions = function() {
 FlowRouter.route('/', {
     action: function(params, queryParams) {
         BlazeLayout.render("mainLayout", {top: "header", main: "main", footer:"footer"});
+    }
+});
+
+// The route definitions
+FlowRouter.route('/landing', {
+    action: function(params, queryParams) {
+        BlazeLayout.render("landingPage");
     }
 });
 

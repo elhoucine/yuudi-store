@@ -1,0 +1,53 @@
+<template name="landingPage">
+  	<!--[if lt IE 9]>
+        <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->
+
+  	<!-- Search modal -->
+  	<div class="modal" tabindex="-1" aria-labelledby="search_modal" id="search_modal">
+  		<div class="header-search">
+  			<form method="get" class="searchform form-inline" action="/">
+  				<div class="form-group">
+  					<input type="text" value="" name="search" class="form-control search-input" placeholder="Search keyword" id="modal-search-input">
+  				</div>
+  				<button type="submit" class="s_theme_button">Search</button>
+  			</form>
+  		</div>
+  	</div>
+  	<div id="canvas">
+  		<div id="box_wrapper">
+
+  			<!-- Breadcrumbs -->
+  			<div class="page_breadcrumbs section_padding_85 breadcrumbs-01 parallax">
+  				<div class="container">
+  					<div class="row">
+  						<div class="col-lg-12">
+  							<h3 class="breadcrumbs__title text-center">we are coming soon</h3>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+
+  			<!-- 404 -->
+  			<div class="ls section_padding_top_70 section_padding_bottom_110">
+  				<div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="widget widget_search">
+                  <img src="/images/yuudi-logo.png" alt="" />
+                  <p class="page-404__text text-center">NewsLetter</p>
+                  <form method="get" class="searchform form-inline" action="/">
+                    <div class="form-group">
+                      <input id="widget-search" type="text" value="" name="search" class="form-control" placeholder="Search...">
+                    </div>
+                    <button class="button-o_t2" type="button">Back To Home</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+  				</div>
+  			</div>
+
+  		</div>
+  	</div>
+</template>
