@@ -116,9 +116,6 @@ var adminRoutes = FlowRouter.group({
   name: "admin",
   triggersEnter: [function(context, redirect) {
     // TODO: improve checking for permission to access.
-    if( !Meteor.user() ){
-      redirect("/");
-    }
   }]
 });
 
