@@ -14,6 +14,9 @@ import '../imports/startup/server/packs.js';
 // This defines all the collections, publications and methods that the application provides
 // as an API to the client.
 
+// Roles
+import '../imports/api/roles/server/publications.js';
+
 // Products
 import '../imports/api/products/products.js';
 import '../imports/api/products/server/publications.js';
