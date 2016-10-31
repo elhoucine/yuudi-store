@@ -9,5 +9,5 @@ Meteor.publish('allOrders', function() {
   if(Roles.userIsInRole(this.userId, "admin")){
     return Orders.find({});
   }
-  this.Ready();
+  this.ready();
 });

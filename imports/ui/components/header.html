@@ -93,6 +93,13 @@
                   <a href="/connexion">Connexion</a>
                 </li>
                 {{/if}}
+                <!-- Admin -->
+                {{#if isInRole 'admin'}}
+                <li>
+                  <a href="/manage/orders">Manage orders</a>
+                </li>
+                {{/if}}
+
               </ul>
             </nav>
             <!-- eof main nav -->
