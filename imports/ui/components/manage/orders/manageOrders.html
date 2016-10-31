@@ -31,10 +31,10 @@
                   {{#each activeOrders}}
                   <tr>
                     <td>
-                      <i class="rt-icon2-clock2"></i>8:00 am – 9:00 am</td>
-                    <td>0 time slots available</td>
+                      <i class="rt-icon2-clock2"></i>{{created}}</td>
+                    <td>{{items.length}} items</td>
                     <td class="text-right">
-                      <button type="button" class="button-g_t4 table-button">Unavailable</button>
+                      <button type="button" class="button-g_t4 table-button">details</button>
                     </td>
                   </tr>
                   {{/each}}

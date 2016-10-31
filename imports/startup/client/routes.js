@@ -124,7 +124,10 @@ var adminRoutes = FlowRouter.group({
 });
 
 adminRoutes.route('/orders', {
-    action: function (params, queryParams) {
-        BlazeLayout.render("mainLayout", {top: "header", main: "manageOrders", footer:"footer"});
-    }
+  subscriptions: function(params, queryParams) {
+    this.register('data', Meteor.subscribe('allOrders'));
+  },
+  action: function (params, queryParams) {
+      BlazeLayout.render("mainLayout", {top: "header", main: "manageOrders", footer:"footer"});
+  }
 });

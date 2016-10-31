@@ -1,3 +1,4 @@
+import { Roles } from 'meteor/alanning:roles';
 import Orders from '../orders.js';
 
 Meteor.publish('allMyOrders', function() {
@@ -5,7 +6,7 @@ Meteor.publish('allMyOrders', function() {
 });
 
 Meteor.publish('allOrders', function() {
-  if(Roles.userInRole(this.userId, "admin")){
+  if(Roles.userIsInRole(this.userId, "admin")){
     return Orders.find({});
   }
   this.Ready();
