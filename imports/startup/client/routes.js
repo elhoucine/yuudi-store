@@ -43,6 +43,10 @@ import  '../../ui/pages/about/about.js';
 //landing pages
 import '../../ui/layouts/landingPage.html';
 
+// Manage order
+import '../../ui/components/manage/orders/manageOrders.html';
+import '../../ui/components/manage/orders/manageOrders.js';
+
 // Subscriptions
 FlowRouter.subscriptions = function() {
   this.register('data', Meteor.subscribe('allPacks'));

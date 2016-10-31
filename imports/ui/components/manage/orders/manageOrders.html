@@ -1,0 +1,49 @@
+<template name="manageOrders">
+  {{#if isInRole 'admin'}}
+    <!-- Appointment -->
+    <div class="ls section_padding_top_10 section_padding_bottom_10">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h3 class="title_t-3">Orders</h3>
+            <p class="sub-title_t-3">All orders for this month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ls section_padding_top_10 section_padding_bottom_120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div id="calendar_wrap">
+              <table class="table_t-1">
+                <caption>
+                  <a id="prev" class="calendar_prev" href="blog-right.html" data-toggle="tooltip" title="Prev">Prev</a>Novembre 2016
+                  <a id="next" class="calendar_next" href="blog-right.html" data-toggle="tooltip" title="Next">Next</a>
+                </caption>
+              </table>
+            </div>
+            <div class="table_t-2_wrapp">
+              <table class="table_t-2">
+                <caption>Active orders :</caption>
+                <tbody>
+                  {{#each activeOrders}}
+                  <tr>
+                    <td>
+                      <i class="rt-icon2-clock2"></i>8:00 am – 9:00 am</td>
+                    <td>0 time slots available</td>
+                    <td class="text-right">
+                      <button type="button" class="button-g_t4 table-button">Unavailable</button>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>
