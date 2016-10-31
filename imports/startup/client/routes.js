@@ -115,7 +115,10 @@ var adminRoutes = FlowRouter.group({
   prefix: "/manage",
   name: "admin",
   triggersEnter: [function(context, redirect) {
-    // TODO: check for permission to access.
+    // TODO: improve checking for permission to access.
+    if( !Meteor.user() ){
+      redirect("/");
+    }
   }]
 });
 
