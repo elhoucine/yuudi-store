@@ -43,7 +43,13 @@ const OrdersSchema = new SimpleSchema({
     optional: true
   },
   status: {
-    type: String
+    type: String,
+    autoValue:function() {
+      if(this.isInsert){
+        return "created";
+      }
+      return this.value;
+    }
   },
   created: {
       type: Date,

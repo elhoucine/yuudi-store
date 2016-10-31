@@ -33,7 +33,7 @@ Meteor.methods({
     // Notify
     const phoneNumber = Meteor.user().profile.phoneNumber;
     const fullName = Meteor.user().profile.fullName;
-    Meteor.call("notifyBySms", fullName, phoneNumber);
+    // Meteor.call("notifyBySms", fullName, phoneNumber);
 
     return newOrder;
   },
