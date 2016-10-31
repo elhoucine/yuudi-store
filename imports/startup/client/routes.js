@@ -106,3 +106,21 @@ FlowRouter.route('/yuudi', {
         BlazeLayout.render("mainLayout", {top: "header", main: "about", footer:"footer"});
     }
 });
+
+/**
+* Admin Routes
+* Grouped.
+**/
+var adminRoutes = FlowRouter.group({
+  prefix: "/manage",
+  name: "admin",
+  triggersEnter: [function(context, redirect) {
+    // TODO: check for permission to access.
+  }]
+});
+
+adminRoutes.route('/orders', {
+    action: function (params, queryParams) {
+        BlazeLayout.render("mainLayout", {top: "header", main: "manageOrders", footer:"footer"});
+    }
+});
