@@ -30,7 +30,7 @@
                     <div class="col-sm-8 col-md-8 col-lg-8">
 
                       <!--  Nom et prenom -->
-                      <div class="form-group validate-required" id="email_landing_field">
+                      <div class="form-group has-success validate-required" id="email_landing_field">
           							<label for="email_landing" class="control-label">
           								<!-- <span class="grey">Soyez informé par mail </span> -->
           								<!-- <span class="required">*</span> -->
@@ -38,14 +38,14 @@
           								<input type="email" class="form-control " name="email_landing" id="email_landing" placeholder="votre-email@gmail.com" required="">
           						</div>
 
-                      <button type="submit" class="button-g_t6">Soyez informé</button>
+                      <!-- <button type="submit" class="button-g_t6">Soyez informé</button> -->
                       <!--  -->
-                      <a href="#id" class="flipper-container">
-                        <div id="id" class="flipper">
-                          <div class="front-face" data-icon="&#x27a3;"><span data-hover="Clicked">Click Me</span></div>
-                          <div class="back-face" data-icon="&#10003;">Thank You</div>
+                      <button style="width:100%;background:none;border:0;" type="submit" id="submitProspectInfo" class="flipper-container">
+                        <div id="success" class="flipper">
+                          <div class="front-face" data-icon="&#x27a3;"><span data-hover="Clicked">{{feedback}}</span></div>
+                          <div class="back-face" data-icon="&#10003;">Merci!</div>
                         </div>
-                      </a>
+                      </button>
                       <!--  -->
                     </div>
         					</form>

@@ -1,3 +1,9 @@
+Template.landingPage.helpers({
+  feedback() {
+    return Session.get("landginFormFeedback") || "Je veux être informé!";
+  }
+});
+
 Template.landingPage.events({
   "submit #landing_form": function(event) {
     event.preventDefault();
@@ -5,6 +11,10 @@ Template.landingPage.events({
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!re.test(email)){
       // TODO: Show error
+      Session.set("landginFormFeedback", "Veuillez entrer un email valide");
+      Meteor.setTimeout(function () {
+        Session.set("landginFormFeedback", "Je veux être informé!");
+      }, 1500);
     };
 
     // Save email
@@ -12,8 +22,15 @@ Template.landingPage.events({
 
     Meteor.call("addProspect", email, function(err, res) {
       if(err){
-        console.log(err.error);
+        Session.set("landginFormFeedback", err.error);
+        Meteor.setTimeout(function () {
+          Session.set("landginFormFeedback", "Je veux être informé!");
+        }, 1500);
+        return;
       }
+      Session.set("landginFormFeedback", "Merci!");
+      $("#email_landing").hide("slow");
+      window.location.href = '#success';
     });
   }
 });
@@ -30,10 +47,12 @@ Template.landingPage.rendered = function() {
   setTimeout(function () {
     firebase.initializeApp(config);
     var database = firebase.database();
-  }, 1000);
+  }, 1500);
 }
 
 // Save to db;
 function writeUserData(email) {
-  firebase.database().ref('emails/').push(email);
+  if(firebase){
+    firebase.database().ref('emails/').push(email);
+  }
 }

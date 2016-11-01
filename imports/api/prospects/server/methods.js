@@ -6,7 +6,7 @@ Meteor.methods({
     check(email, String);
 
     if(Prospects.findOne({email:email})){
-      throw new Meteor.Error("Email already registred");  
+      throw new Meteor.Error("Ooops! Email déjà enregistré.");  
     }
 
     return Prospects.insert({
