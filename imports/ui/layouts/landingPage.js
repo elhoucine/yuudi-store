@@ -23,9 +23,7 @@ Template.landingPage.rendered = function() {
   };
   setTimeout(function () {
     firebase.initializeApp(config);
-    console.log("firebase ok");
     var database = firebase.database();
-    console.log("database ok");
     console.log(database);
   }, 1000);
 }
