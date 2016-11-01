@@ -30,7 +30,6 @@ Template.landingPage.rendered = function() {
   setTimeout(function () {
     firebase.initializeApp(config);
     var database = firebase.database();
-    console.log(database);
   }, 1000);
 }
 
