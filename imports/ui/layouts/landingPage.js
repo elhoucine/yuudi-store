@@ -1,6 +1,9 @@
 Template.landingPage.helpers({
   feedback() {
     return Session.get("landginFormFeedback") || "Je veux être informé!";
+  },
+  success() {
+    return Session.get("success");
   }
 });
 
@@ -31,6 +34,7 @@ Template.landingPage.events({
       Session.set("landginFormFeedback", "Merci!");
       $("#email_landing").hide("slow");
       window.location.href = '#success';
+      Session.set("success", true);
     });
   }
 });
