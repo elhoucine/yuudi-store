@@ -39,8 +39,23 @@
           						</div>
 
                       <button type="submit" class="button-g_t6">Soyez informé</button>
+                      <!--  -->
+                      <a href="#id" class="flipper-container">
+                        <div id="id" class="flipper">
+                          <div class="front-face" data-icon="&#x27a3;"><span data-hover="Clicked">Click Me</span></div>
+                          <div class="back-face" data-icon="&#10003;">Thank You</div>
+                        </div>
+                      </a>
+                      <!--  -->
                     </div>
         					</form>
+                  {{#if success}}
+                  <div class="col-sm-12 to_animate animated fadeInDownBig" data-animation="fadeInDownBig" data-delay="150">
+      							<h3>Merci!</h3>
+      							<p>Nous allons vous informer, une fois que le service sera lancé...</p>
+                    <p>Vous pouvez toutefois nous suivre sur les facebook..</p>
+      						</div>
+                  {{/if}}
   						</div>
   					</div>
   				</div>
