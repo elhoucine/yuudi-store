@@ -47,6 +47,8 @@ import '../../ui/layouts/landingPage.js';
 // Manage order
 import '../../ui/components/manage/orders/manageOrders.html';
 import '../../ui/components/manage/orders/manageOrders.js';
+import '../../ui/components/manage/orders/order-detail.html';
+import '../../ui/components/manage/orders/order-detail.js';
 
 // Subscriptions
 FlowRouter.subscriptions = function() {
@@ -130,5 +132,14 @@ adminRoutes.route('/orders', {
   },
   action: function (params, queryParams) {
       BlazeLayout.render("mainLayout", {top: "header", main: "manageOrders", footer:"footer"});
+  }
+});
+
+adminRoutes.route('/orders/:id', {
+  subscriptions: function(params, queryParams) {
+    this.register('data', Meteor.subscribe('orderDetail', params.id));
+  },
+  action: function (params, queryParams) {
+      BlazeLayout.render("mainLayout", {top: "header", main: "orderDetails", footer:"footer"});
   }
 });

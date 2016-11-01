@@ -1,0 +1,159 @@
+<template name="orderDetail">
+  <div class="ls section_padding_top_10 section_padding_bottom_75  shop-cart">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-12 text-center">
+          <h3 class="title_t-1 title_t-1--position2 text-center">Detail de la commande N°xx</h3>
+          <p class="sub-title_t-5 title_t-1--position3 text-center">Veuillez livrez au client le plus vite possible.</p>
+        </div>
+
+        <div class="col-sm-8 col-md-8 col-lg-8">
+
+          <div class="table-responsive">
+            <table id="updateCart" class="table cart-table">
+              <thead>
+                <tr>
+                  <td class="product-info">Produit</td>
+                  <td class="product-price-td">Prix</td>
+                  <td class="product-quantity">Quantité</td>
+                  <td class="product-subtotal">Total</td>
+                  <td class="product-remove">&nbsp;</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                {{#if cartItems}}
+                  {{#each cartItems}}
+                    <tr class="cart_item">
+                      <td class="product-info">
+                        <div class="media">
+                          <div class="media-left">
+                            <a href="detail/{{ref}}?detail=produit">
+                              <img class="media-object cart-product-image" src="{{item.photoCover}}" alt="">
+                            </a>
+                          </div>
+                          <div class="media-body">
+                            <h4 class="media-heading">
+                              <a href="detail/{{ref}}?detail=produit">{{item.name}}</a>
+                            </h4>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="product-price">
+                        <span class="amount">{{item.price}}</span>
+                        <span class="currencies">DHs</span>
+                      </td>
+                      <td class="product-quantity">
+                        <div class="quantity">
+                          <input id="m{{ref}}" disabled="{{disableDecrement quantity}}" type="button" value="-" class="minus">
+                          <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control" disabled="disabled">
+                          <input id="p{{ref}}" disabled="{{disableIncrement quantity}}" type="button" value="+" class="plus">
+                        </div>
+                      </td>
+                      <td class="product-subtotal">
+                        <span class="amount">{{totalItemsQuantity item.price quantity}}</span>
+                        <span class="currencies">DHs</span>
+                      </td>
+                      <td class="product-remove">
+                        <a href="#" class="remove fontsize_24" title="Remove this item">
+                          <i id="r{{ref}}" class="rt-icon2-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  {{/each}}
+                {{else}}
+                  <tr>
+                    <td colspan="4">
+                      <span style="text-align:center;display:block">Votre panier est vide</span>
+                    </td>
+                  </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+
+
+
+          <!-- <div class="row">
+            <div class="col-sm-6">
+              <div class="coupon with_padding muted_background">
+                <h3 class="topmargin_0">Discount Codes</h3>
+                <p>Enter coupon code if you have one</p>
+                <div class="form-group">
+                  <label class="sr-only" for="coupon_code">Coupon:</label>
+                  <input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="Coupon code">
+                </div>
+                <a class="button-g_t6" href="#">Apply Coupon</a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="shipping-calculator-form with_padding muted_background">
+                <h3 class="topmargin_0">Shipping &amp; Tax</h3>
+                <p>Enter destination to get shipping</p>
+                <div class="form-group">
+                  <select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state form-control">
+                    <option value="">Select a country…</option>
+                    <option value="AX">Åland Islands</option>
+                    <option value="OM">Oman</option>
+                    <option value="GB" selected="selected">United Kingdom (UK)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" value="" placeholder="State / county" name="calc_shipping_state" id="calc_shipping_state">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" value="" placeholder="Postcode / Zip" name="calc_shipping_postcode" id="calc_shipping_postcode">
+                </div>
+                <div>
+                  <button type="submit" name="calc_shipping" class="button-g_t6" value="1">Update Totals</button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <div class="cart-collaterals">
+            <div class="cart_totals">
+              <h4>Panier totaux</h4>
+              <table class="table">
+                <tbody>
+                  <tr class="cart-subtotal">
+                    <td>Panier Total</td>
+                    <td>
+                      <span class="amount">{{cartSubtotal}}</span>
+                      <span class="currencies">DHs</span>
+                    </td>
+                  </tr>
+                  <tr class="shipping">
+                    <td>Livraison et Frais de Port</td>
+                    <td>
+                      Gratuit
+                    </td>
+                  </tr>
+                  <tr class="order-total">
+                    <td class="grey">Total de commande</td>
+                    <td>
+                      <strong class="grey">
+                        <span class="amount">{{totalCart}}</span>
+                        <span class="currencies">DHs</span>
+                      </strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="cart-buttons">
+            <a href="/" class="button-g_t6">Continuer mes achats</a>
+            <a href="/checkout" class="button-g_t6">Passer ma Commande</a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
