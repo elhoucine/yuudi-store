@@ -1,6 +1,6 @@
 import Products from '../../api/products/products.js';
 
-if( Products.find().count() < 1){
+if( Products.find().count() < 10){
 
   Products.insert({
       published: true,
