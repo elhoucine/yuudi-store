@@ -17,6 +17,10 @@ import '../imports/startup/server/packs.js';
 // Roles
 import '../imports/api/roles/server/publications.js';
 
+// landingPage
+import '../imports/api/prospects/prospects.js';
+import '../imports/api/prospects/server/methods.js';
+
 // Products
 import '../imports/api/products/products.js';
 import '../imports/api/products/server/publications.js';

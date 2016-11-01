@@ -9,6 +9,12 @@ Template.landingPage.events({
 
     // Save email
     var res = writeUserData(email);
+
+    Meteor.call("addProspect", email, function(err, res) {
+      if(err){
+        console.log(err.error);
+      }
+    });
   }
 });
 
