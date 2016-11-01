@@ -8,7 +8,7 @@ Template.orderDetail.helpers({
   cartItems() {
     // Connected
     console.log("Hello cartItems");
-    var userCart = Order.findOne();
+    var userCart = Orders.findOne();
     return showItems(userCart);
 
     function showItems() {

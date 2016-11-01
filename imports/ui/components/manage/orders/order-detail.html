@@ -5,7 +5,7 @@
 
         <div class="col-lg-12 text-center">
           <h3 class="title_t-1 title_t-1--position2 text-center">Detail de la commande N°xx</h3>
-          <p class="sub-title_t-5 title_t-1--position3 text-center">Veuillez livrez au client le plus vite possible.</p>
+          <p class="sub-title_t-5 title_t-1--position3 text-center">Veuillez livrez au client ({{currentUser.profile.fullName}}) le plus vite possible.</p>
         </div>
 
         <div class="col-sm-8 col-md-8 col-lg-8">
@@ -46,19 +46,12 @@
                       </td>
                       <td class="product-quantity">
                         <div class="quantity">
-                          <input id="m{{ref}}" disabled="{{disableDecrement quantity}}" type="button" value="-" class="minus">
-                          <input type="number" step="1" min="0" name="product_quantity" value="{{quantity}}" title="Qty" class="form-control" disabled="disabled">
-                          <input id="p{{ref}}" disabled="{{disableIncrement quantity}}" type="button" value="+" class="plus">
+                          <span class="amount">{{quantity}}</span>
                         </div>
                       </td>
                       <td class="product-subtotal">
                         <span class="amount">{{totalItemsQuantity item.price quantity}}</span>
                         <span class="currencies">DHs</span>
-                      </td>
-                      <td class="product-remove">
-                        <a href="#" class="remove fontsize_24" title="Remove this item">
-                          <i id="r{{ref}}" class="rt-icon2-trash"></i>
-                        </a>
                       </td>
                     </tr>
                   {{/each}}
@@ -116,11 +109,11 @@
         <div class="col-sm-4 col-md-4 col-lg-4">
           <div class="cart-collaterals">
             <div class="cart_totals">
-              <h4>Panier totaux</h4>
+              <h4>Commande totaux</h4>
               <table class="table">
                 <tbody>
                   <tr class="cart-subtotal">
-                    <td>Panier Total</td>
+                    <td>Total de la commande</td>
                     <td>
                       <span class="amount">{{cartSubtotal}}</span>
                       <span class="currencies">DHs</span>
@@ -133,7 +126,7 @@
                     </td>
                   </tr>
                   <tr class="order-total">
-                    <td class="grey">Total de commande</td>
+                    <td class="grey">Prix a payer</td>
                     <td>
                       <strong class="grey">
                         <span class="amount">{{totalCart}}</span>
@@ -147,8 +140,8 @@
           </div>
 
           <div class="cart-buttons">
-            <a href="/" class="button-g_t6">Continuer mes achats</a>
-            <a href="/checkout" class="button-g_t6">Passer ma Commande</a>
+            <a href="/" class="button-g_t6">Modifier la commande</a>
+            <a href="/checkout" class="button-o_t6">Marqué comme commande livrée</a>
           </div>
 
         </div>

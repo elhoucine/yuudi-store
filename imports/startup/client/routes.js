@@ -140,6 +140,6 @@ adminRoutes.route('/orders/:id', {
     this.register('data', Meteor.subscribe('orderDetail', params.id));
   },
   action: function (params, queryParams) {
-      BlazeLayout.render("mainLayout", {top: "header", main: "orderDetails", footer:"footer"});
+      BlazeLayout.render("mainLayout", {top: "header", main: "orderDetail", footer:"footer"});
   }
 });
