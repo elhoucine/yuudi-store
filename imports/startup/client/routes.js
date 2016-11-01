@@ -42,6 +42,7 @@ import  '../../ui/pages/about/about.js';
 
 //landing pages
 import '../../ui/layouts/landingPage.html';
+import '../../ui/layouts/landingPage.js';
 
 // Manage order
 import '../../ui/components/manage/orders/manageOrders.html';
