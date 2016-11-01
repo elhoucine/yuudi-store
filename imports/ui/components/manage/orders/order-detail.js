@@ -5,9 +5,12 @@ Template.orderDetail.redered = function(){
 }
 
 Template.orderDetail.helpers({
+  customer() {
+    var order = Orders.findOne();
+    return Meteor.users.findOne({'_id': order.userId})
+  },
   cartItems() {
     // Connected
-    console.log("Hello cartItems");
     var userCart = Orders.findOne();
     return showItems(userCart);
 
