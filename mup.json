@@ -3,9 +3,9 @@
   "servers": [
     {
       "host": "164.132.54.107",
-      "username": "el",
-      "pem": "~/.ssh/id_rsa",
-      //"password": "password",
+      "username": "root",
+      //"pem": "~/.ssh/id_rsa",
+      "password": "3Aewdk9W",
       // or pem file (ssh based authentication)
       // WARNING: Keys protected by a passphrase are not supported
       // Also, for non-standard ssh port use this
@@ -22,7 +22,7 @@
   "appName": "yuudi",
 
   // Location of app (local directory). This can reference '~' as the users home directory.
-  "app": "~/Meteor/yuudi",
+  "app": "~/projects/yuudi",
   // This is the same as the line below.
   //"app": "/Users/arunoda/Meteor/my-app",
 
