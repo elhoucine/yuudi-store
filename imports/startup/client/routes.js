@@ -3,6 +3,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 // import { AccountsTemplates } from 'meteor/useraccounts:core';
 
 // Import to load these templates
+/*
 import '../../ui/layouts/mainLayout.html';
 import '../../ui/layouts/mainLayout.js';
 
@@ -40,29 +41,32 @@ import  '../../ui/pages/contact/contact.js';
 import  '../../ui/pages/about/about.html';
 import  '../../ui/pages/about/about.js';
 
-//landing pages
-import '../../ui/layouts/landingPage.html';
-import '../../ui/layouts/landingPage.js';
-
 // Manage order
 import '../../ui/components/manage/orders/manageOrders.html';
 import '../../ui/components/manage/orders/manageOrders.js';
 import '../../ui/components/manage/orders/order-detail.html';
 import '../../ui/components/manage/orders/order-detail.js';
+*/
+
+
+//landing pages
+import '../../ui/layouts/landingPage.html';
+import '../../ui/layouts/landingPage.js';
 
 // Subscriptions
-FlowRouter.subscriptions = function() {
-  this.register('data', Meteor.subscribe('allPacks'));
-  this.register('data', Meteor.subscribe('allProducts'));
-  if(Meteor.userId()) {
-    this.register('data', Meteor.subscribe('myCart', Meteor.userId()));
-  }
-};
+// FlowRouter.subscriptions = function() {
+//   this.register('data', Meteor.subscribe('allPacks'));
+//   this.register('data', Meteor.subscribe('allProducts'));
+//   if(Meteor.userId()) {
+//     this.register('data', Meteor.subscribe('myCart', Meteor.userId()));
+//   }
+// };
 
 // The route definitions
 FlowRouter.route('/', {
     action: function(params, queryParams) {
-        BlazeLayout.render("mainLayout", {top: "header", main: "main", footer:"footer"});
+        // BlazeLayout.render("mainLayout", {top: "header", main: "main", footer:"footer"});
+        FlowRouter.go('/landing');
     }
 });
 
@@ -73,6 +77,7 @@ FlowRouter.route('/landing', {
     }
 });
 
+/*
 FlowRouter.route('/checkout', {
     action: function(params, queryParams) {
       // Login or create account before checkout.
@@ -113,11 +118,13 @@ FlowRouter.route('/yuudi', {
         BlazeLayout.render("mainLayout", {top: "header", main: "about", footer:"footer"});
     }
 });
+*/
 
 /**
 * Admin Routes
 * Grouped.
 **/
+/*
 var adminRoutes = FlowRouter.group({
   prefix: "/manage",
   name: "admin",
@@ -143,3 +150,4 @@ adminRoutes.route('/orders/:id', {
       BlazeLayout.render("mainLayout", {top: "header", main: "orderDetail", footer:"footer"});
   }
 });
+*/

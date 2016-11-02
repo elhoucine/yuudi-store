@@ -14,10 +14,11 @@ Template.landingPage.events({
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if(!re.test(email)){
       // TODO: Show error
-      Session.set("landginFormFeedback", "Veuillez entrer un email valide");
+      Session.set("landginFormFeedback", "Veuillez entrer une adress mail valide.");
       Meteor.setTimeout(function () {
         Session.set("landginFormFeedback", "Je veux être informé!");
       }, 1500);
+      // return;
     };
 
     // Save email
