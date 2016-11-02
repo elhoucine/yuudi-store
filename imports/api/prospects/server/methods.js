@@ -6,7 +6,7 @@ Meteor.methods({
   addProspect(email) {
     check(email, String);
 
-    if (IsValidEmail(email)) {
+    if (!IsValidEmail(email)) {
         throw new Meteor.Error("Ooops! Veuillez entrer une adress mail valide.");
     }
 
