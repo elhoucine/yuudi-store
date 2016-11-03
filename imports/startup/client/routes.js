@@ -66,12 +66,12 @@ import '../../ui/layouts/landingPage.js';
 FlowRouter.route('/', {
     action: function(params, queryParams) {
         // BlazeLayout.render("mainLayout", {top: "header", main: "main", footer:"footer"});
-        FlowRouter.go('/landing');
+        FlowRouter.go('/invitation');
     }
 });
 
 // The route definitions
-FlowRouter.route('/landing', {
+FlowRouter.route('/invitation', {
     action: function(params, queryParams) {
         BlazeLayout.render("landingPage");
     }
