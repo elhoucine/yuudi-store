@@ -1,24 +1,9 @@
 import { Session } from 'meteor/session';
 import Carts from '/imports/api/carts/carts.js';
+import CartTools from '/imports/ui/components/cart/cartUtilities.js';
 
 Template.myCartFull.helpers({
-  cartItems() {
-    if(!Meteor.userId()){
-      var userCart = Session.get("userCart");
-      return showItems(userCart)
-    }
-
-    // Connected
-    var userCart = Carts.findOne();
-    return showItems(userCart);
-
-    function showItems() {
-      if (userCart && userCart.items) {
-        const items = userCart.items;
-        return items;
-      }
-    }
-  },
+  cartItems: CartTools.cartItems(),
   /*----------*/
   totalItemsQuantity(itemPrice, quantity){
     return itemPrice * quantity;
